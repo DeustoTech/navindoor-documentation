@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>T01 Extended Kalman Filter to traj class | Navindoor MATLAB Toolbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234clear;load(&apos;data/signals/SgnsBBS_filter_by_RSS&apos;)load(&apos;data/levels/EI_UD_conn_AP_fakes.mat&apos;)load(&apos;data/trajs/straj_in_conn_AP_fakes.mat&apos;) Seleccionamos el primer tramo de se&amp;ntilde;al 12index_traj">
+<meta property="og:type" content="article">
+<meta property="og:title" content="T01 Extended Kalman Filter to traj class">
+<meta property="og:url" content="http://yoursite.com/CT04_S02_T01/index.html">
+<meta property="og:site_name" content="Navindoor MATLAB Toolbox">
+<meta property="og:description" content="1234clear;load(&apos;data/signals/SgnsBBS_filter_by_RSS&apos;)load(&apos;data/levels/EI_UD_conn_AP_fakes.mat&apos;)load(&apos;data/trajs/straj_in_conn_AP_fakes.mat&apos;) Seleccionamos el primer tramo de se&amp;ntilde;al 12index_traj">
+<meta property="og:locale" content="es">
+<meta property="og:image" content="http://yoursite.com/images/CT04_Signals_Processing/S02_Extended_Kalman_Filter/T01_Extended_Kalman_Filter_to_traj_class_01.png">
+<meta property="og:updated_time" content="2018-05-09T14:38:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T01 Extended Kalman Filter to traj class">
+<meta name="twitter:description" content="1234clear;load(&apos;data/signals/SgnsBBS_filter_by_RSS&apos;)load(&apos;data/levels/EI_UD_conn_AP_fakes.mat&apos;)load(&apos;data/trajs/straj_in_conn_AP_fakes.mat&apos;) Seleccionamos el primer tramo de se&amp;ntilde;al 12index_traj">
+<meta name="twitter:image" content="http://yoursite.com/images/CT04_Signals_Processing/S02_Extended_Kalman_Filter/T01_Extended_Kalman_Filter_to_traj_class_01.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Navindoor MATLAB Toolbox</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CT04_Signals_Processing/S02_Extended_Kalman_Filter/T01_Extended_Kalman_Filter_to_traj_class" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CT04_S02_T01/" class="article-date">
+  <time datetime="2018-05-09T14:38:14.000Z" itemprop="datePublished">2018-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a>►<a class="article-category-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      T01 Extended Kalman Filter to traj class
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">load(<span class="string">'data/signals/SgnsBBS_filter_by_RSS'</span>)</span><br><span class="line">load(<span class="string">'data/levels/EI_UD_conn_AP_fakes.mat'</span>)</span><br><span class="line">load(<span class="string">'data/trajs/straj_in_conn_AP_fakes.mat'</span>)</span><br></pre></td></tr></table></figure>
+<p>Seleccionamos el primer tramo de se&ntilde;al</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index_traj = <span class="number">1</span>;</span><br><span class="line">itraj  = straj.trajs(index_traj);</span><br></pre></td></tr></table></figure>
+<p>Selecionamos la se&ntilde;al RSS generada por esa trayectoria, utilizamos los el indice de trayectoria.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index_RSS_sgn = <span class="number">1</span>;</span><br><span class="line">iBBSL_RSS = iBBS(index_RSS_sgn).BBSLevels(index_traj);</span><br></pre></td></tr></table></figure>
+<p>Por &uacute;ltimo recogemos el nivel donde transcurre esa trayectoria, utilizamos la propiedad level de itraj</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ilevel = building.levels(itraj.level + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clear(<span class="string">'building'</span>);clear(<span class="string">'straj'</span>);clear(<span class="string">'iBBS'</span>);clear(<span class="string">'index*'</span>)</span><br><span class="line">whos</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Name           Size             Bytes  Class       Attributes</span><br><span class="line"></span><br><span class="line">iBBSL_RSS      1x1              26538  BBSLevel              </span><br><span class="line">ilevel         1x1             316393  level                 </span><br><span class="line">itraj          1x1              23002  traj</span><br></pre></td></tr></table></figure>
+<h2 id="Condiciones-iniciales"><a href="#Condiciones-iniciales" class="headerlink" title="Condiciones iniciales"></a>Condiciones iniciales</h2><p>Tomamos el vector de estado que nos proporciona la trayectoria .</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x0 = itraj.nodes(<span class="number">1</span>).r(<span class="number">1</span>);</span><br><span class="line">y0 = itraj.nodes(<span class="number">1</span>).r(<span class="number">2</span>);</span><br><span class="line">v0 = itraj.v(<span class="number">1</span>);</span><br><span class="line">v0x = v0*<span class="built_in">cos</span>(itraj.angles(<span class="number">1</span>));</span><br><span class="line">v0y = v0*<span class="built_in">sin</span>(itraj.angles(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">initialStateGuess = [x0 y0 v0x v0y]'</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">initialStateGuess =</span><br><span class="line"></span><br><span class="line">   13.8648</span><br><span class="line">   35.9272</span><br><span class="line">    5.5881</span><br><span class="line">         0</span><br></pre></td></tr></table></figure>
+<h2 id="Funci-oacute-n-de-Transici-oacute-n-y-de-medida"><a href="#Funci-oacute-n-de-Transici-oacute-n-y-de-medida" class="headerlink" title="Funci&oacute;n de Transici&oacute;n y de medida"></a>Funci&oacute;n de Transici&oacute;n y de medida</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type StateTransition_EKF.m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function x_new = StateTransition_EKF(x,u)</span><br><span class="line">%STATETRANSITION </span><br><span class="line">% </span><br><span class="line">    dt = u(1);</span><br><span class="line">    </span><br><span class="line">    F = [ 1 0 dt 0 ; ...</span><br><span class="line">          0 1 0 dt ; ...</span><br><span class="line">          0 0 1 0  ; ... </span><br><span class="line">          0 0 0 1 ];</span><br><span class="line">    x_new = F*x;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Measurement_EKF.m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function y = Measurement_EKF(x,u)</span><br><span class="line">%MEASUREMENT </span><br><span class="line">%  u = matrix [mx2] of beacons positions </span><br><span class="line">%  x = matrix [nx1], [x,y,vx,vy]  </span><br><span class="line">% </span><br><span class="line">    y = 10*log10(sqrt((x(1) - u(:,1)).^2 + (x(2) - u(:,2) ).^2));</span><br><span class="line">    y = [y ;x(3);x(4)];</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="Constructor-del-Filtro-de-Kalman"><a href="#Constructor-del-Filtro-de-Kalman" class="headerlink" title="Constructor del Filtro de Kalman"></a>Constructor del Filtro de Kalman</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExtendedKF = extendedKalmanFilter(@StateTransition_EKF,@Measurement_EKF,initialStateGuess)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ExtendedKF = </span><br><span class="line"></span><br><span class="line">  extendedKalmanFilter with properties:</span><br><span class="line"></span><br><span class="line">        HasAdditiveProcessNoise: 1</span><br><span class="line">             StateTransitionFcn: @StateTransition_EKF</span><br><span class="line">    HasAdditiveMeasurementNoise: 1</span><br><span class="line">                 MeasurementFcn: @Measurement_EKF</span><br><span class="line">     StateTransitionJacobianFcn: []</span><br><span class="line">         MeasurementJacobianFcn: []</span><br><span class="line">                          State: [4x1 double]</span><br><span class="line">                StateCovariance: [4x4 double]</span><br><span class="line">                   ProcessNoise: [4x4 double]</span><br><span class="line">               MeasurementNoise: 1</span><br></pre></td></tr></table></figure>
+<p><strong>Covarianzas del de las  medidas y del modelo</strong> %%</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sigma_m = <span class="number">10.5</span>;sigma_d=<span class="number">20.5</span></span><br><span class="line">dt = iBBSL_RSS.dt;</span><br><span class="line">total_beacon = <span class="built_in">length</span>(iBBSL_RSS.beacons);</span><br><span class="line">ExtendedKF.MeasurementNoise = <span class="built_in">diag</span>([repmat(sigma_m^<span class="number">2</span>,<span class="number">1</span>,total_beacon) <span class="number">0.75</span>^<span class="number">2</span> <span class="number">0.75</span>^<span class="number">2</span> ]);</span><br><span class="line">ExtendedKF.MeasurementNoise</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sigma_d =</span><br><span class="line"></span><br><span class="line">   20.5000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  Columns 1 through 7</span><br><span class="line"></span><br><span class="line">  110.2500         0         0         0         0         0         0</span><br><span class="line">         0  110.2500         0         0         0         0         0</span><br><span class="line">         0         0  110.2500         0         0         0         0</span><br><span class="line">         0         0         0  110.2500         0         0         0</span><br><span class="line">         0         0         0         0  110.2500         0         0</span><br><span class="line">         0         0         0         0         0  110.2500         0</span><br><span class="line">         0         0         0         0         0         0    0.5625</span><br><span class="line">         0         0         0         0         0         0         0</span><br><span class="line"></span><br><span class="line">  Column 8</span><br><span class="line"></span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">         0</span><br><span class="line">    0.5625</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ExtendedKF.ProcessNoise = <span class="built_in">diag</span>([(dt^<span class="number">4</span>)/<span class="number">4</span> , dt^<span class="number">4</span>/<span class="number">4</span>  , dt^<span class="number">2</span>  ,  dt^<span class="number">2</span>]*sigma_d^<span class="number">2</span>);</span><br><span class="line">ExtendedKF.ProcessNoise</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">    0.0105         0         0         0</span><br><span class="line">         0    0.0105         0         0</span><br><span class="line">         0         0    4.2025         0</span><br><span class="line">         0         0         0    4.2025</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">estimation = <span class="built_in">zeros</span>(iBBSL_RSS.len,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>% <strong>M&eacute;todo de ejecuci&oacute;n</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tf = itraj.t(<span class="keyword">end</span>);</span><br><span class="line">ti = <span class="number">0</span>;</span><br><span class="line">time_line =ti:dt:tf;</span><br></pre></td></tr></table></figure>
+<p>Posici&oacute;n de los  <em>beacons</em></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">u = vec2mat([iBBSL_RSS.beacons.r],<span class="number">2</span>);</span><br><span class="line"><span class="comment">% En este caso estas posiciones no se modifican</span></span><br><span class="line">iter = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> t = time_line</span><br><span class="line">    iter = iter + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">% Predict</span></span><br><span class="line">    <span class="comment">% ==================</span></span><br><span class="line">    <span class="comment">% Predecimos el valor de la posici&amp;oacute;n segun el modelo dinamico</span></span><br><span class="line">    predict(ExtendedKF,dt)</span><br><span class="line"></span><br><span class="line">    <span class="comment">% RSS values</span></span><br><span class="line">    <span class="comment">% ==================</span></span><br><span class="line">    result = step(iBBSL_RSS,t);</span><br><span class="line">    values = result.values;</span><br><span class="line">    <span class="comment">% en este caso no hace falta recoger result.beacons</span></span><br><span class="line">    <span class="comment">% ya que los beacons siempre son los mismo, ya que iBBSL_RSS</span></span><br><span class="line">    <span class="comment">% no ha sio filtrado. Comprobar que iBBSL_RSS.NumMaxAps == 0</span></span><br><span class="line">    <span class="comment">%</span></span><br><span class="line">    <span class="comment">% velocity values</span></span><br><span class="line">    <span class="comment">% ==================</span></span><br><span class="line">    index_node = time2index(itraj,t);</span><br><span class="line">    v = itraj.v(index_node) + normrnd(<span class="number">0</span>,<span class="number">2.5</span>);</span><br><span class="line">    vx = v*<span class="built_in">cos</span>(itraj.angles(index_node));</span><br><span class="line">    vy = v*<span class="built_in">sin</span>(itraj.angles(index_node));</span><br><span class="line">    <span class="comment">%</span></span><br><span class="line">    <span class="comment">% create measurement</span></span><br><span class="line">    <span class="comment">% ==================</span></span><br><span class="line">    z = [values vx vy]'; <span class="comment">% z debe se contravariante</span></span><br><span class="line"></span><br><span class="line">    correct(ExtendedKF,z,u)</span><br><span class="line">    estimation(iter,:) = ExtendedKF.State';</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> clf</span><br><span class="line">plot(itraj)</span><br><span class="line">hold</span><br><span class="line">plot(ilevel)</span><br><span class="line">line(estimation(:,<span class="number">1</span>),estimation(:,<span class="number">2</span>),<span class="string">'Marker'</span>,<span class="string">'*'</span>,<span class="string">'Color'</span>,<span class="string">'red'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Current plot held</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT04_Signals_Processing/S02_Extended_Kalman_Filter/T01_Extended_Kalman_Filter_to_traj_class_01.png" alt=""></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">itraj_estimation = mat2traj(estimation(:,<span class="number">1</span>:<span class="number">2</span>));</span><br><span class="line">itraj_estimation.t = itraj.t;</span><br><span class="line">itraj_estimation.v = <span class="built_in">sqrt</span>(estimation(:,<span class="number">3</span>).^<span class="number">2</span> + estimation(:,<span class="number">4</span>).^<span class="number">2</span>);</span><br><span class="line">itraj_estimation.label = <span class="string">'Estimation'</span>;</span><br><span class="line"></span><br><span class="line">itraj.label = <span class="string">'Real'</span>;</span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% %% comparetraj([itraj_estimation itraj]) &amp;lt; == console</span></span><br><span class="line"><span class="comment">% %%</span></span><br></pre></td></tr></table></figure>
+<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CT04_S02_T01/" data-id="cjgz7lv5u000h55s4db6o9m7d" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/CT04_S02_T02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          T02 Extended Kalman Filter to supertraj class
+        
+      </div>
+    </a>
+  
+  
+    <a href="/CT03_S05_T01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">T01 Introduction to BeaconFreeSgn</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jesus Oroya<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
+  
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

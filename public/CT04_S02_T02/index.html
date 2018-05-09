@@ -5,19 +5,19 @@
   
 
   
-  <title>T01 Signals simulation introduction | Navindoor MATLAB Toolbox</title>
+  <title>T02 Extended Kalman Filter to supertraj class | Navindoor MATLAB Toolbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+  <meta name="description" content="Published with MATLAB R2017b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="T01 Signals simulation introduction">
-<meta property="og:url" content="http://yoursite.com/CT03_S01_T01/index.html">
+<meta property="og:title" content="T02 Extended Kalman Filter to supertraj class">
+<meta property="og:url" content="http://yoursite.com/CT04_S02_T02/index.html">
 <meta property="og:site_name" content="Navindoor MATLAB Toolbox">
-<meta property="og:description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+<meta property="og:description" content="Published with MATLAB R2017b">
 <meta property="og:locale" content="es">
-<meta property="og:updated_time" content="2018-05-09T14:37:05.000Z">
+<meta property="og:updated_time" content="2018-05-09T14:38:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T01 Signals simulation introduction">
-<meta name="twitter:description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+<meta name="twitter:title" content="T02 Extended Kalman Filter to supertraj class">
+<meta name="twitter:description" content="Published with MATLAB R2017b">
   
   
     <link rel="icon" href="/favicon.png">
@@ -64,14 +64,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-CT03_Signals_Simulation/S01_Introduction/T01_Signals_simulation_introduction" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CT04_Signals_Processing/S02_Extended_Kalman_Filter/T02_Extended_Kalman_Filter_to_supertraj_class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/CT03_S01_T01/" class="article-date">
-  <time datetime="2018-05-09T14:37:05.000Z" itemprop="datePublished">2018-05-09</time>
+    <a href="/CT04_S02_T02/" class="article-date">
+  <time datetime="2018-05-09T14:38:15.000Z" itemprop="datePublished">2018-05-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a>
+    <a class="article-category-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a>►<a class="article-category-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a>
   </div>
 
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      T01 Signals simulation introduction
+      T02 Extended Kalman Filter to supertraj class
     </h1>
   
 
@@ -90,29 +90,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La simulaci&oacute;n de se&ntilde;ales sint&eacute;ticas es la principal motivaci&oacute;n de este toolbox. Ya definida la clase <a href="/CT02_S02_T01/"><em>traj</em></a> se puede generar se&ntilde;ales dependientes de balizas o se&ntilde;ales independientes de balizas.</p>
-<p>Esta divisi&oacute;n es natural en la  posicionamiento(<strong>1</strong>), y en la implementaci&oacute;n de estas se&ntilde;ales tambi&eacute;n surge. Por lo que las distintas se&ntilde;ales que se pueden generar en la aplicaci&oacute;n se pueden agrupar en la sigiente manera:</p>
-<h2 id="BeaconBasedSgn"><a href="#BeaconBasedSgn" class="headerlink" title="BeaconBasedSgn:"></a><a href="/CT03_S04_T01/">BeaconBasedSgn</a>:</h2><p>Se&ntilde;ales basadas en Beacons, es decir se&ntilde;ales generadas a partir de informaci&oacute;n por una serie de puntos de acceso, de las cuales sabemos su posici&oacute;n en la planimetr&iacute;a.</p>
-<ul>
-<li>RSS</li>
-<li>AoA</li>
-<li>ToF</li>
-</ul>
-<h2 id="BeaconFreeSgn"><a href="#BeaconFreeSgn" class="headerlink" title="BeaconFreeSgn:"></a><a href="/CT03_S05_T01/">BeaconFreeSgn</a>:</h2><p>Se&ntilde;ales generadas por el propia trayectoria con interaci&oacute;n con la planimetr&iacute;a.</p>
-<ul>
-<li>Aceler&oacute;metro</li>
-<li>Bar&oacute;metro</li>
-<li>Magnet&oacute;metro</li>
-</ul>
-<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referencias"></a>Referencias</h2><ol>
-<li>[Indoor positioning system - Wikipedia]&lt;<a href="https://en.wikipedia.org/wiki/Indoor_positioning_system&gt;" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Indoor_positioning_system&gt;</a></li>
-</ol>
-<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT03_S01_T01/" data-id="cjgz7lv5d000555s4bb6yh4kn" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT04_S02_T02/" data-id="cjgz7lv5v000i55s4ov4gz4rq" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -121,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/CT03_S02_T01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nuevo</strong>
-      <div class="article-nav-title">
-        
-          T01 Introduction to BBSLevel class
-        
-      </div>
-    </a>
   
-  
-    <a href="/CT02_S02_T02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CT04_S02_T01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">T02 Select posible space</div>
+      <div class="article-nav-title">T01 Extended Kalman Filter to traj class</div>
     </a>
   
 </nav>

@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn_01.png">
 <meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn_02.png">
 <meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn_03.png">
-<meta property="og:updated_time" content="2018-05-09T10:05:52.000Z">
+<meta property="og:updated_time" content="2018-05-09T14:38:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="T01 Introduction to BeaconFreeSgn">
 <meta name="twitter:description" content="La clase BeaconsFreeSgn, es la evoluci&amp;oacute;n de la clase BFSLevel. Mientras que BFSLevel toma como variables de entrada un objeto traj y un objeto level, BeaconsFreeSgn toma como variables de entra">
@@ -71,7 +71,7 @@
         <section id="main"><article id="post-CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CT03_S05_T01/" class="article-date">
-  <time datetime="2018-05-09T10:05:52.000Z" itemprop="datePublished">2018-05-09</time>
+  <time datetime="2018-05-09T14:38:06.000Z" itemprop="datePublished">2018-05-09</time>
 </a>
     
   <div class="article-category">
@@ -143,7 +143,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tables =</span><br><span class="line"></span><br><span class="line">  1x5 cell array</span><br><span class="line"></span><br><span class="line">  Columns 1 through 4</span><br><span class="line"></span><br><span class="line">    &#123;205x2 table&#125;    &#123;258x2 table&#125;    &#123;207x2 table&#125;    &#123;338x2 table&#125;</span><br><span class="line"></span><br><span class="line">  Column 5</span><br><span class="line"></span><br><span class="line">    &#123;232x2 table&#125;</span><br></pre></td></tr></table></figure>
 <p>Extraemos la tabla del primer tramo recorrido.</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tbl1 = tables&#123;<span class="number">1</span>&#125;;</span><br><span class="line">tbl1(<span class="number">1</span>:<span class="number">5</span>,:)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x2 table</span><br><span class="line"></span><br><span class="line">    time    x_001 </span><br><span class="line">    ____    ______</span><br><span class="line"></span><br><span class="line">      0     760.02</span><br><span class="line">    0.1     760.06</span><br><span class="line">    0.2      759.9</span><br><span class="line">    0.3     760.03</span><br><span class="line">    0.4     759.98</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x2 table</span><br><span class="line"></span><br><span class="line">    time    x_001 </span><br><span class="line">    ____    ______</span><br><span class="line"></span><br><span class="line">      0     759.95</span><br><span class="line">    0.1      760.3</span><br><span class="line">    0.2     760.08</span><br><span class="line">    0.3     759.86</span><br><span class="line">    0.4     759.88</span><br></pre></td></tr></table></figure>
 <p>Podemos ver gr&aacute;ficamente la se&ntilde;al recibida durante el primer tramo.</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot(tbl1&#123;:,<span class="number">1</span>&#125;,tbl1&#123;:,<span class="number">2</span>:end&#125;)</span><br><span class="line">xlabel(<span class="string">'time(s)'</span>);ylabel(<span class="string">'Pressure(mmHg)'</span>);title(<span class="string">'Barometero signal'</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/images/CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn_01.png" alt=""></p>
@@ -152,16 +152,16 @@
 <p><img src="/images/CT03_Signals_Simulation/S05_BeaconFreeSgn/T01_Introduction_to_BeaconFreeSgn_02.png" alt=""></p>
 <p>La clase <em>BeaconFreeSgn</em> cuenta con un m&eacute;todo que devuelve el valor en cada instante, simpre y cuando el valor del tiempo este definido dentro de la se&ntilde;al</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(Baro_sgn,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  760.0156</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.9549</span><br></pre></td></tr></table></figure>
 <p>Obtenemos la se&ntilde;al requerida</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(Baro_sgn,<span class="number">22.3</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.8103</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.7541</span><br></pre></td></tr></table></figure>
 <p>Obtenemos la se&ntilde;al requerida en otro instante de tiempo</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(Baro_sgn,<span class="number">22.5</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.8363</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.7845</span><br></pre></td></tr></table></figure>
 <p>Hemos encontrado un tramo sin se&ntilde;al, esto ocurre durante los cambios de planta</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(Baro_sgn,<span class="number">32.5</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.7336</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  759.5920</span><br></pre></td></tr></table></figure>
 <p>el n&uacute;mero de <em>beacons</em> que recibimos a cambiado, por lo que sabemos que hemos cambiado de planta</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% step(Baro_sgn,1000.0)</span></span><br></pre></td></tr></table></figure>
 <p>Por &uacute;ltimo, si no salimos del rango de definici&oacute;n, generaremos un error.</p>
@@ -173,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT03_S05_T01/" data-id="cjgyyj9he000o7ws49bcv87l8" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT03_S05_T01/" data-id="cjgz7lv5s000f55s41i5fc55y" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -182,19 +182,19 @@
     
 <nav id="article-nav">
   
-    <a href="/CT03_S04_T02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CT04_S02_T01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          T02 Signal Filter by Beacons
+          T01 Extended Kalman Filter to traj class
         
       </div>
     </a>
   
   
-    <a href="/CT03_S04_T01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CT03_S04_T02/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">T01 Introduction to BeaconBasedSgn class</div>
+      <div class="article-nav-title">T02 Signal Filter by Beacons</div>
     </a>
   
 </nav>
@@ -210,7 +210,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a></li></ul></li></ul>
     </div>
   </div>
 
