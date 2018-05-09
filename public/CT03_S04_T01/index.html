@@ -5,20 +5,21 @@
   
 
   
-  <title>T01 Introduccion a la simulación de la señales | Navindoor MATLAB Toolbox</title>
+  <title>T01 Introduction to BeaconBasedSgn class | Navindoor MATLAB Toolbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="La simulación de señales sintéticas es la principal motivación de este toolbox. Ya definida la clase traj se puede generar señales dependientes de balizas o señales independientes de balizas. Esta div">
-<meta name="keywords" content="ejemplos">
+  <meta name="description" content="La clase BeaconsBasedSgn, es la evoluci&amp;oacute;n de la clase BBSLevel. Mientras que BBSLevel toma como variables de entrada un objeto traj y un objeto level, BeaconsBasedSgn toma como variables de ent">
 <meta property="og:type" content="article">
-<meta property="og:title" content="T01 Introduccion a la simulación de la señales">
+<meta property="og:title" content="T01 Introduction to BeaconBasedSgn class">
 <meta property="og:url" content="http://yoursite.com/CT03_S04_T01/index.html">
 <meta property="og:site_name" content="Navindoor MATLAB Toolbox">
-<meta property="og:description" content="La simulación de señales sintéticas es la principal motivación de este toolbox. Ya definida la clase traj se puede generar señales dependientes de balizas o señales independientes de balizas. Esta div">
+<meta property="og:description" content="La clase BeaconsBasedSgn, es la evoluci&amp;oacute;n de la clase BBSLevel. Mientras que BBSLevel toma como variables de entrada un objeto traj y un objeto level, BeaconsBasedSgn toma como variables de ent">
 <meta property="og:locale" content="es">
-<meta property="og:updated_time" content="2018-05-04T11:07:27.000Z">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T01_Introduction_to_BeaconBasedSgn_class_01.png">
+<meta property="og:updated_time" content="2018-05-09T10:05:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T01 Introduccion a la simulación de la señales">
-<meta name="twitter:description" content="La simulación de señales sintéticas es la principal motivación de este toolbox. Ya definida la clase traj se puede generar señales dependientes de balizas o señales independientes de balizas. Esta div">
+<meta name="twitter:title" content="T01 Introduction to BeaconBasedSgn class">
+<meta name="twitter:description" content="La clase BeaconsBasedSgn, es la evoluci&amp;oacute;n de la clase BBSLevel. Mientras que BBSLevel toma como variables de entrada un objeto traj y un objeto level, BeaconsBasedSgn toma como variables de ent">
+<meta name="twitter:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T01_Introduction_to_BeaconBasedSgn_class_01.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -51,7 +52,7 @@
         
           <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
         
-          <a class="main-nav-link" href="/">Download</a>
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
         
       </nav>
       <nav id="sub-nav">
@@ -65,14 +66,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-CT03/S04/01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CT03_Signals_Simulation/S04_BeaconBasedSgn/T01_Introduction_to_BeaconBasedSgn_class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CT03_S04_T01/" class="article-date">
-  <time datetime="2018-05-03T13:30:10.000Z" itemprop="datePublished">2018-05-03</time>
+  <time datetime="2018-05-09T10:05:21.000Z" itemprop="datePublished">2018-05-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CT03-Simulacion-de-senales/">CT03 Simulación de señales</a>►<a class="article-category-link" href="/categories/CT03-Simulacion-de-senales/S04-Clase-BeaconBasedSgn/">S04 Clase BeaconBasedSgn</a>
+    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a>
   </div>
 
   </div>
@@ -83,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      T01 Introduccion a la simulación de la señales
+      T01 Introduction to BeaconBasedSgn class
     </h1>
   
 
@@ -91,50 +92,101 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La simulación de señales sintéticas es la principal motivación de este toolbox. Ya definida la clase <a href="/CT02002/"><em>traj</em></a> se puede generar señales dependientes de balizas o señales independientes de balizas. Esta división es natural en el desarrollo del posicionamiento<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Indoor positioning system - Wikipedia](https://en.wikipedia.org/wiki/Indoor_positioning_system)
-">[1]</span></a></sup>, y en la implementación de estas señales tambien se hace notar. Por lo que las distintas señales que se pueden generar en la aplicación se pueden agrupar en la sigiente manera:</p>
-<ul>
-<li><a href="/CT03002/">BeaconBasedSgn</a>: Señales basadas en Beacons, es decir señales generadas a partir de información por una serie de puntos de acceso, de las cuales sabemos su posición en la planimetría.<ul>
-<li>RSS </li>
-<li>AoA</li>
-<li>ToF</li>
-</ul>
-</li>
-<li><a href="/CT03003/">BeaconFreeSgn</a>: Señales generadas por el propia trayectoria con interación con la planimetría. <ul>
-<li>Acelerómetro</li>
-<li>Barómetro </li>
-<li>Magnetómetro </li>
-</ul>
-</li>
-</ul>
-<h5 id="Referencias"><a href="#Referencias" class="headerlink" title="Referencias"></a>Referencias</h5><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://en.wikipedia.org/wiki/Indoor_positioning_system" target="_blank" rel="noopener">Indoor positioning system - Wikipedia</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La clase <em>BeaconsBasedSgn</em>, es la evoluci&oacute;n de la clase <em>BBSLevel</em>. Mientras que <em>BBSLevel</em> toma como variables de entrada un objeto <em>traj</em> y un objeto <em>level</em>, <em>BeaconsBasedSgn</em> toma como variables de entrada un objeto <em>supertraj</em> y un objeto <em>build</em>. Tiene muchas similitudes, sin embargo el este &uacute;ltimo, se tiene valores de se&ntilde;al entre plantas</p>
+<table>
+<thead>
+<tr>
+<th>Input Vars</th>
+<th>&nbsp;Mandotory/Optional</th>
+<th>type</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>istraj</td>
+<td>Mandatory</td>
+<td>supertraj</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ibuild</td>
+<td>Mandatory</td>
+<td>build</td>
+<td>-</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Mandatory</td>
+<td>char</td>
+<td>(‘RSS’,’ToF’,’AoA’)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Ejemplo-B-aacute-sico"><a href="#Ejemplo-B-aacute-sico" class="headerlink" title="Ejemplo B&aacute;sico"></a>Ejemplo B&aacute;sico</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">load(<span class="string">'data/levels/EI_UD_conn_AP_fakes.mat'</span>)</span><br><span class="line">load(<span class="string">'data/trajs/straj_in_conn_AP_fakes.mat'</span>)</span><br><span class="line">whos</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name          Size              Bytes  Class        Attributes</span><br><span class="line"></span><br><span class="line">building      1x1             1728061  build                  </span><br><span class="line">straj         1x1              142628  supertraj</span><br></pre></td></tr></table></figure>
+<p>Antes de nada veamos como son nuestras variables de entrada. La variable <em>building</em>, es un edif&iacute;cio de 5 plantas,</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">building</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">building = </span><br><span class="line"></span><br><span class="line">  build with properties:</span><br><span class="line"></span><br><span class="line">           levels: [1x5 level]</span><br><span class="line">              len: 0</span><br><span class="line">      connections: [1x12 wall]</span><br><span class="line">    height_levels: [0 5 10 15 20]</span><br></pre></td></tr></table></figure>
+<p>Mientras que el objeto <em>straj</em> es una trayectoria dentro del edif&iacute;cio mecionado</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">straj</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">straj = </span><br><span class="line"></span><br><span class="line">  supertraj with properties:</span><br><span class="line"></span><br><span class="line">             trajs: [1x5 traj]</span><br><span class="line">       connections: [1x4 wall]</span><br><span class="line">    dt_connections: [4.9000 12.3000 3.8000 0.7000]</span><br><span class="line">               len: 5</span><br><span class="line">       dt_equitime: 0.1000</span><br><span class="line">      has_velocity: 1</span><br><span class="line">          equitime: 1</span><br></pre></td></tr></table></figure>
+<p>Para crear un se&ntilde;al RSS de manera r&aacute;pida, simplemente escribimos.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSS_sgn = BeaconBasedSgn(building,straj,<span class="string">'RSS'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">RSS_sgn = </span><br><span class="line"></span><br><span class="line">  BeaconBasedSgn with properties:</span><br><span class="line"></span><br><span class="line">         BBSLevels: [1x5 BBSLevel]</span><br><span class="line">             label: &apos;RSS Signal&apos;</span><br><span class="line">      sgn_function: @RSS_dflt</span><br><span class="line">           beacons: &#123;1x5 cell&#125;</span><br><span class="line">                dt: 0.1000</span><br><span class="line">              type: &apos;RSS&apos;</span><br><span class="line">    dt_connections: [4.9000 12.3000 3.8000 0.7000]</span><br></pre></td></tr></table></figure>
+<p>Este objeto contiene una lista de clases <em>BBSLevel</em>, estas propiedades describen el recorrido de la trayectoria en cada planta.</p>
+<p>Podemos extraer tables de cada nivel, donde el n&uacute;mero de columna es igual al n&uacute;mero de <em>beacons</em> en cada planta, mientras que las filas representan los distintos instantes de tiempo</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tables = signal2table(RSS_sgn)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tables =</span><br><span class="line"></span><br><span class="line">  1x5 cell array</span><br><span class="line"></span><br><span class="line">  Columns 1 through 4</span><br><span class="line"></span><br><span class="line">    &#123;205x7 table&#125;    &#123;258x8 table&#125;    &#123;207x9 table&#125;    &#123;338x7 table&#125;</span><br><span class="line"></span><br><span class="line">  Column 5</span><br><span class="line"></span><br><span class="line">    &#123;232x12 table&#125;</span><br></pre></td></tr></table></figure>
+<p>Extraemos la tabla del primer tramo recorrido.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tbl1 = tables&#123;<span class="number">1</span>&#125;;</span><br><span class="line">tbl1(<span class="number">1</span>:<span class="number">5</span>,:)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x7 table</span><br><span class="line"></span><br><span class="line">    time    beacon_001    beacon_002    beacon_003    beacon_004    beacon_005    beacon_006</span><br><span class="line">    ____    __________    __________    __________    __________    __________    __________</span><br><span class="line"></span><br><span class="line">      0     17.833        21.056        21.253        14.237        20.549        20.372    </span><br><span class="line">    0.1     17.786        21.139        21.169         14.25        20.454        20.553    </span><br><span class="line">    0.2     17.835         21.14        21.152        14.164        20.277        20.321    </span><br><span class="line">    0.3     17.729         21.17        20.908        14.231        20.393        20.397    </span><br><span class="line">    0.4     17.406        21.122        20.888        14.211        20.326         20.19</span><br></pre></td></tr></table></figure>
+<p>Podemos ver gr&aacute;ficamente la se&ntilde;al recibida durante el primer tramo.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot(tbl1&#123;:,<span class="number">1</span>&#125;,tbl1&#123;:,<span class="number">2</span>:end&#125;)</span><br><span class="line">xlabel(<span class="string">'time(s)'</span>);ylabel(<span class="string">'Attenuation'</span>);title(<span class="string">'RSS signal'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T01_Introduction_to_BeaconBasedSgn_class_01.png" alt=""></p>
+<p>La clase <em>BeaconBasedSgn</em> cuenta con un m&eacute;todo que devuelve el valor en cada instante, simpre y cuando el valor del tiempo este definido dentro de la se&ntilde;al</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_sgn,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  struct with fields:</span><br><span class="line"></span><br><span class="line">     values: [17.8333 21.0562 21.2534 14.2366 20.5495 20.3722]</span><br><span class="line">    beacons: [1x6 beacon]</span><br></pre></td></tr></table></figure>
+<p>Obtenemos la se&ntilde;al requerida</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_sgn,<span class="number">22.3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  struct with fields:</span><br><span class="line"></span><br><span class="line">     values: []</span><br><span class="line">    beacons: []</span><br></pre></td></tr></table></figure>
+<p>Obtenemos la se&ntilde;al requerida en otro instante de tiempo</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_sgn,<span class="number">22.5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  struct with fields:</span><br><span class="line"></span><br><span class="line">     values: []</span><br><span class="line">    beacons: []</span><br></pre></td></tr></table></figure>
+<p>Hemos encontrado un tramo sin se&ntilde;al, esto ocurre durante los cambios de planta</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_sgn,<span class="number">32.5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  struct with fields:</span><br><span class="line"></span><br><span class="line">     values: [16.3133 15.2982 14.6073 17.5957 19.7639 12.5537 17.9022]</span><br><span class="line">    beacons: [1x7 beacon]</span><br></pre></td></tr></table></figure>
+<p>el n&uacute;mero de <em>beacons</em> que recibimos a cambiado, por lo que sabemos que hemos cambiado de planta</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_sgn,<span class="number">1000.0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error using BeaconBasedSgn/step (line 25)</span><br><span class="line">Tiempo fuera de rango</span><br><span class="line"></span><br><span class="line">Error in /images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T01_Introduction_to_BeaconBasedSgn_class (line 67)</span><br><span class="line">step(RSS_sgn,1000.0)</span><br></pre></td></tr></table></figure>
+<p>Por &uacute;ltimo, si no salimos del rango de definici&oacute;n, generaremos un error.</p>
+<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT03_S04_T01/" data-id="cjgs25pxw000pe5s492397zn3" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT03_S04_T01/" data-id="cjgyyj9hb000m7ws4x1ak9oz6" class="article-share-link">Compartir</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejemplos/">ejemplos</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/CT03_S03_T01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CT03_S05_T01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          T01 Introduccion a la simulación de la señales
+          T01 Introduction to BeaconFreeSgn
         
       </div>
     </a>
   
   
-    <a href="/CT03_S05_T01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CT03_S03_T01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">T01 Introduccion a la simulación de la señales</div>
+      <div class="article-nav-title">T01 Introduction to BFSLevel class</div>
     </a>
   
 </nav>
@@ -150,7 +202,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/">CT01 Planimetría</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/">CT02 Simulación de trayectorias</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S01-Introducion/">S01 Introdución</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S02-Clase-traj/">S02 Clase traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S03-Clase-supertraj/">S03 Clase supertraj</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/">CT03 Simulación de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S01-Introduccion/">S01 Introducción</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S02-Clase-BBSLevel/">S02 Clase BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S03-Clase-BFSLevel/">S03 Clase BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S04-Clase-BeaconBasedSgn/">S04 Clase BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S05-Clase-BeaconFreeSgn/">S05 Clase BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/">CT04 Procesamiento de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/">CT05 Comparación de métodos</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/S01-Introduccion/">S01 Introducción</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -177,7 +229,7 @@
   
     <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
   
-    <a href="/" class="mobile-nav-link">Download</a>
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
   
 </nav>
     

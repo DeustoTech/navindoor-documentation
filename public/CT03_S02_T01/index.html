@@ -5,24 +5,23 @@
   
 
   
-  <title>T01 Introducción a la clase BBSLevel. Señal en una planta | Navindoor MATLAB Toolbox</title>
+  <title>T01 Introduction to BBSLevel class | Navindoor MATLAB Toolbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="La clase BBSLevel es un objeto capaz de generar la una señal sintética que depende de los puntos de acceso, dado una trayectoria y la planimetría del nivel por donde transcurre la trayectoria.  Variab">
-<meta name="keywords" content="ejemplos">
+  <meta name="description" content="La clase BBSLevel es un objeto capaz de generar la una se&amp;ntilde;al sint&amp;eacute;tica que depende de los puntos de acceso, dado una trayectoria y la planimetr&amp;iacute;a del nivel por donde transcurre la">
 <meta property="og:type" content="article">
-<meta property="og:title" content="T01 Introducción a la clase BBSLevel. Señal en una planta">
+<meta property="og:title" content="T01 Introduction to BBSLevel class">
 <meta property="og:url" content="http://yoursite.com/CT03_S02_T01/index.html">
 <meta property="og:site_name" content="Navindoor MATLAB Toolbox">
-<meta property="og:description" content="La clase BBSLevel es un objeto capaz de generar la una señal sintética que depende de los puntos de acceso, dado una trayectoria y la planimetría del nivel por donde transcurre la trayectoria.  Variab">
+<meta property="og:description" content="La clase BBSLevel es un objeto capaz de generar la una se&amp;ntilde;al sint&amp;eacute;tica que depende de los puntos de acceso, dado una trayectoria y la planimetr&amp;iacute;a del nivel por donde transcurre la">
 <meta property="og:locale" content="es">
-<meta property="og:image" content="http://yoursite.com/images/03-signals-simulation/02001.png">
-<meta property="og:image" content="http://yoursite.com/images/03-signals-simulation/02002.png">
-<meta property="og:image" content="http://yoursite.com/images/03-signals-simulation/02003.png">
-<meta property="og:updated_time" content="2018-05-04T14:29:17.000Z">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_01.png">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_02.png">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_03.png">
+<meta property="og:updated_time" content="2018-05-09T10:04:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T01 Introducción a la clase BBSLevel. Señal en una planta">
-<meta name="twitter:description" content="La clase BBSLevel es un objeto capaz de generar la una señal sintética que depende de los puntos de acceso, dado una trayectoria y la planimetría del nivel por donde transcurre la trayectoria.  Variab">
-<meta name="twitter:image" content="http://yoursite.com/images/03-signals-simulation/02001.png">
+<meta name="twitter:title" content="T01 Introduction to BBSLevel class">
+<meta name="twitter:description" content="La clase BBSLevel es un objeto capaz de generar la una se&amp;ntilde;al sint&amp;eacute;tica que depende de los puntos de acceso, dado una trayectoria y la planimetr&amp;iacute;a del nivel por donde transcurre la">
+<meta name="twitter:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_01.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,7 +54,7 @@
         
           <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
         
-          <a class="main-nav-link" href="/">Download</a>
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
         
       </nav>
       <nav id="sub-nav">
@@ -69,14 +68,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-CT03/S02/01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CT03_S02_T01/" class="article-date">
-  <time datetime="2018-05-03T13:30:10.000Z" itemprop="datePublished">2018-05-03</time>
+  <time datetime="2018-05-09T10:04:52.000Z" itemprop="datePublished">2018-05-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CT03-Simulacion-de-senales/">CT03 Simulación de señales</a>►<a class="article-category-link" href="/categories/CT03-Simulacion-de-senales/S02-Clase-BBSLevel/">S02 Clase BBSLevel</a>
+    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a>
   </div>
 
   </div>
@@ -87,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      T01 Introducción a la clase BBSLevel. Señal en una planta
+      T01 Introduction to BBSLevel class
     </h1>
   
 
@@ -95,185 +94,108 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La clase <em>BBSLevel</em> es un objeto capaz de generar la una señal sintética que depende de los puntos de acceso, dado una trayectoria y la planimetría del nivel por donde transcurre la trayectoria. </p>
-<h3 id="Variables-de-entrada"><a href="#Variables-de-entrada" class="headerlink" title="Variables de entrada"></a>Variables de entrada</h3><table>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La clase <strong>BBSLevel</strong> es un objeto capaz de generar la una se&ntilde;al sint&eacute;tica que depende de los puntos de acceso, dado una trayectoria y la planimetr&iacute;a del nivel por donde transcurre la trayectoria.</p>
+<h2 id="Variables-de-entrada"><a href="#Variables-de-entrada" class="headerlink" title="Variables de entrada"></a>Variables de entrada</h2><table>
 <thead>
 <tr>
 <th>Variable de entrada</th>
 <th>Obligatoria/ Opcional</th>
-<th>Posibles Valores</th>
-<th>clase</th>
-<th>Por defecto</th>
+<th>type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>itraj</td>
 <td>Obligatoria</td>
-<td>objeto clase traj</td>
 <td>traj</td>
-<td>-</td>
 </tr>
 <tr>
 <td>ilevel</td>
 <td>Obligatoria</td>
-<td>objeto clase level</td>
 <td>level</td>
-<td>-</td>
 </tr>
 <tr>
 <td>type</td>
 <td>Obligatoria</td>
-<td>(RSS,ToF,AoA)</td>
 <td>char</td>
-<td>-</td>
 </tr>
 <tr>
 <td>sgn_function</td>
 <td>Opcional</td>
-<td>objeto handle</td>
-<td>function handle</td>
-<td>(@RRS_dflt,@ToF_dflt,@AoA_dflt)</td>
+<td>handle function</td>
 </tr>
 <tr>
 <td>parameters_sgn</td>
 <td>Opcional</td>
-<td>lista de parametros</td>
-<td>list</td>
-<td>0.1</td>
+<td>cell array</td>
 </tr>
 <tr>
 <td>label</td>
 <td>Opcional</td>
-<td>nombre de la señal</td>
 <td>char</td>
-<td>‘label’</td>
 </tr>
 <tr>
 <td>dt</td>
 <td>Opcional</td>
-<td>frecuencia de medida</td>
 <td>double</td>
-<td>0.1</td>
 </tr>
 </tbody>
 </table>
-<h1 id="Ejemplo-basico"><a href="#Ejemplo-basico" class="headerlink" title="Ejemplo básico"></a>Ejemplo básico</h1><p> Para un primer acercamiento a esta clase crearemos un objeto de manera simplificada. </p>
-<h3 id="Preparacion-para-la-ejecucion-del-constructor-BBSLevel"><a href="#Preparacion-para-la-ejecucion-del-constructor-BBSLevel" class="headerlink" title="Preparación para la ejecucion del constructor BBSLevel"></a>Preparación para la ejecucion del constructor <em>BBSLevel</em></h3><p>Creamos una clase nivel<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">clf</span><br><span class="line">ilevel = level;</span><br><span class="line"><span class="comment">% generamos beacons aleatorios dentro del nivel</span></span><br><span class="line">beacons = arrayfun(@(x) <span class="built_in">rand</span>(ilevel,<span class="string">'beacon'</span>),<span class="number">1</span>:<span class="number">4</span>);</span><br><span class="line">ilevel.beacons = beacons; </span><br><span class="line"><span class="comment">% veamos como ha quedado</span></span><br><span class="line">plot(ilevel)</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/03-signals-simulation/02001.png" alt="ilevel - level"></p>
-<p>Creamos una trayectoria dentro de este nivel<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span>:<span class="number">0.1</span>:<span class="number">40</span>;</span><br><span class="line">y = x + <span class="number">5</span>*<span class="built_in">sin</span>(x);</span><br><span class="line">itraj = mat2traj([x<span class="string">' y'</span>]);</span><br><span class="line">hold on</span><br><span class="line">plot(itraj)</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/03-signals-simulation/02002.png" alt="itraj - traj"></p>
-<p>Es necesario generar la velocidad de esta trayectoria. Como en esta entrada la generación de la velocidad no es de especial interés, simplemente nos limitaremos a ejecutar lo siguiente:</p>
+<h2 id="Ejemplo-B-aacute-sico"><a href="#Ejemplo-B-aacute-sico" class="headerlink" title="Ejemplo B&aacute;sico"></a>Ejemplo B&aacute;sico</h2><p>generamos beacons aleatorios dentro del nivel</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">ilevel = level;</span><br><span class="line">beacons = arrayfun(@(x) <span class="built_in">rand</span>(ilevel,<span class="string">'beacon'</span>),<span class="number">1</span>:<span class="number">4</span>);</span><br><span class="line">ilevel.beacons = beacons;</span><br></pre></td></tr></table></figure>
+<p>veamos como ha quedado</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(ilevel)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_01.png" alt=""></p>
+<p>creamos una trayectoria dentro de este nivel. Nos inventamos una curva dentro de la planta</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span>:<span class="number">0.1</span>:<span class="number">40</span>;</span><br><span class="line">y = x + <span class="number">5</span>*<span class="built_in">sin</span>(x);</span><br></pre></td></tr></table></figure>
+<p>creamos una objecto tipo traj, apartir de una matrix [x’ y’]</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">itraj = mat2traj([x<span class="string">' y'</span>]);</span><br><span class="line">hold on</span><br><span class="line">plot(itraj)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_02.png" alt=""></p>
+<p>Es necesario generar la velocidad de esta trayectoria. Como en esta entrada la generaci&oacute;n de la velocidad no es de especial inter&eacute;s, simplemente nos limitaremos a ejecutar lo siguiente:</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">itraj = velocity(itraj);</span><br><span class="line">itraj</span><br></pre></td></tr></table></figure>
-<pre><code>itraj = 
-      traj with properties:
-               nodes: [1×301 vertex]
-                  mt: [301×2 double]
-            distance: 103.7669
-              angles: [1×301 double]
-             dangles: [1×301 double]
-              slopes: [1×301 double]
-             dslopes: [1×301 double]
-                   x: [1×301 double]
-                 len: 301
-               label: &apos;traj&apos;
-                   v: [1×301 double]
-                   t: [1×301 double]
-               level: 0
-        has_velocity: 1
-            equitime: 0
-                  dt: 0
-</code></pre><h3 id="Ejecucion-del-constructor-BBSLevel"><a href="#Ejecucion-del-constructor-BBSLevel" class="headerlink" title="Ejecucion del constructor BBSLevel"></a>Ejecucion del constructor <em>BBSLevel</em></h3><p>En este primer ejempo simularemos una señal tipo RSS, ejecutando el siguiente comando:<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSS_signal = BBSLevel(itraj,ilevel,<span class="string">'RSS'</span>)</span><br></pre></td></tr></table></figure></p>
-<pre><code>RSS_signal = 
-
-  BBSLevel with properties:
-
-              ms: [1×321 ms_node]
-    sgn_function: @RSS_dflt
-         beacons: [1×4 beacon]
-           label: &apos;RSS Signal&apos;
-            type: &apos;RSS&apos;
-              dt: 0.1000
-       NumMaxAps: 0
-       direction: &apos;none&apos;
-         orderby: &apos;none&apos;
-             len: 321
-</code></pre><p>Una vez creado este objeto, podemos extraer información con la función <em>step</em>. Esta función tiene como parámetro de entrada el objeto creado y el tiempo.<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_signal,<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
-<pre><code>ans =
-
-    8.3469   14.9437   11.8792   11.0126
-</code></pre><p>Estos valores son la atenuación de los <em>beacons</em> definidos en el nivel. Los valores siguen el orden que tiene los objetos <em>beacon</em> dentro de la estructura <em>ilevel</em><br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ilevel.beacons</span><br></pre></td></tr></table></figure></p>
-<pre><code>ans = 
-  1×4 beacon array with properties:
-
-    frecuency
-    r
-    level
-</code></pre><p>Donde sus posiciones son:<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ilevel.beacons.r</span><br></pre></td></tr></table></figure></p>
-<pre><code>ans =
-    3.1811    6.6351
-
-
-ans =
-   34.7830   27.2292
-
-
-ans =
-   24.3258    2.4464
-
-
-ans =
-   14.2220   18.8033
-</code></pre><p>Podemos extraer una tabla con valores en cada instante de tiempo con la función<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tbl = signal2table(RSS_signal)</span><br></pre></td></tr></table></figure></p>
-<pre><code>tbl =
-
-  245×5 table
-
-    time    beacon_001    beacon_002    beacon_003    beacon_004
-    ____    __________    __________    __________    __________
-
-       0    8.3469        14.944        11.879           11.013 
-     0.1     8.446         14.93        11.823           11.036 
-     0.2    8.5635        14.982        11.625           11.184 
-     0.3    8.5478        15.108        11.679           11.184 
-     0.4    8.7596        15.266        11.523           11.229 
-     0.5    9.0369        15.013        11.355           11.271 
-     0.6     8.999        14.866        11.451           11.127 
-     0.7    9.3111        14.992        11.368           11.049 
-     0.8    9.1135        15.074        11.457           10.851 
-     ...
-</code></pre><p>representando esta tabla:<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">clf</span><br><span class="line">plot(tbl&#123;:,<span class="number">1</span>&#125;,tbl&#123;:,<span class="number">2</span>:<span class="number">5</span>&#125;)</span><br><span class="line">xlabel(<span class="string">'time'</span>)</span><br><span class="line">ylabel(<span class="string">'attenuation'</span>)</span><br><span class="line">legend(strcat(<span class="string">'beacon-'</span>,num2str((<span class="number">1</span>:<span class="number">4</span>)',<span class="string">'%0.2d'</span>)))</span><br></pre></td></tr></table></figure></p>
-<p>Obtenemos la evolución temporal de la señal de los distintos <em>beacons</em><br><img src="/images/03-signals-simulation/02003.png" alt="Representación de tbl"></p>
-<h1 id="Relacionados"><a href="#Relacionados" class="headerlink" title="Relacionados"></a>Relacionados</h1><hr>
-<ul>
-<li>BBSLevel/step </li>
-<li>BeaconBasedSgn</li>
-<li>signal2table</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">itraj = </span><br><span class="line"></span><br><span class="line">  traj with properties:</span><br><span class="line"></span><br><span class="line">           nodes: [1x301 vertex]</span><br><span class="line">              mt: [301x2 double]</span><br><span class="line">        distance: 103.7669</span><br><span class="line">          angles: [1x301 double]</span><br><span class="line">         dangles: [1x301 double]</span><br><span class="line">          slopes: [1x301 double]</span><br><span class="line">         dslopes: [1x301 double]</span><br><span class="line">               x: [1x301 double]</span><br><span class="line">             len: 301</span><br><span class="line">           label: &apos;traj&apos;</span><br><span class="line">               v: [1x301 double]</span><br><span class="line">               t: [1x301 double]</span><br><span class="line">           level: 0</span><br><span class="line">    has_velocity: 1</span><br><span class="line">        equitime: 0</span><br><span class="line">              dt: 0</span><br></pre></td></tr></table></figure>
+<h2 id="Ejecucion-del-constructor-BBSLevel"><a href="#Ejecucion-del-constructor-BBSLevel" class="headerlink" title="Ejecucion del constructor BBSLevel"></a>Ejecucion del constructor BBSLevel</h2><p>En este primer ejempo simularemos una se&ntilde;al tipo RSS, ejecutando el siguiente comando:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RSS_signal = BBSLevel(itraj,ilevel,<span class="string">'RSS'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">RSS_signal = </span><br><span class="line"></span><br><span class="line">  BBSLevel with properties:</span><br><span class="line"></span><br><span class="line">              ms: [1x307 ms_node]</span><br><span class="line">    sgn_function: @RSS_dflt</span><br><span class="line">         beacons: [1x4 beacon]</span><br><span class="line">           label: &apos;RSS Signal&apos;</span><br><span class="line">            type: &apos;RSS&apos;</span><br><span class="line">              dt: 0.1000</span><br><span class="line">       NumMaxAps: 0</span><br><span class="line">       direction: &apos;none&apos;</span><br><span class="line">         orderby: &apos;none&apos;</span><br><span class="line">             len: 307</span><br></pre></td></tr></table></figure>
+<p>Una vez creado este objeto, podemos extraer informaci&oacute;n con la funci&oacute;n <strong>step</strong>. Esta funci&oacute;n tiene como par&aacute;metro de entrada el objeto creado y el tiempo.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step(RSS_signal,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">   14.7974   12.1508   12.7564   14.6350</span><br></pre></td></tr></table></figure>
+<p>Estos valores son la atenuaci&oacute;n de los <strong>beacons</strong> definidos en el nivel. Los valores siguen el orden que tiene los objetos <strong>beacon</strong> dentro de la estructura <strong>ilevel</strong></p>
+<p>Podemos extraer una tabla con valores en cada instante de tiempo con la funci&oacute;n</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tbl = signal2table(RSS_signal);</span><br><span class="line">tbl(<span class="number">1</span>:<span class="number">5</span>,:)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x5 table</span><br><span class="line"></span><br><span class="line">    time    beacon_001    beacon_002    beacon_003    beacon_004</span><br><span class="line">    ____    __________    __________    __________    __________</span><br><span class="line"></span><br><span class="line">      0     14.797        12.151        12.756        14.635    </span><br><span class="line">    0.1     14.699        11.965        12.672        14.601    </span><br><span class="line">    0.2     14.697        12.196        12.764        14.605    </span><br><span class="line">    0.3     14.705        11.962        12.663        14.523    </span><br><span class="line">    0.4     14.749        11.862        12.885        14.702</span><br></pre></td></tr></table></figure>
+<p>representando esta tabla:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">clf</span><br><span class="line">plot(tbl&#123;:,<span class="number">1</span>&#125;,tbl&#123;:,<span class="number">2</span>:<span class="number">5</span>&#125;)</span><br><span class="line">xlabel(<span class="string">'time'</span>)</span><br><span class="line">ylabel(<span class="string">'attenuation'</span>)</span><br><span class="line">legend(strcat(<span class="string">'beacon-'</span>,num2str((<span class="number">1</span>:<span class="number">4</span>)',<span class="string">'%0.2d'</span>)))</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S02_BBSLevel/T01_Introduction_to_BBSLevel_class_03.png" alt=""></p>
+<p>Obtenemos la evoluci&oacute;n temporal de la se&ntilde;al de los distintos <strong>beacons</strong></p>
+<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT03_S02_T01/" data-id="cjgs25pxq000ge5s4tcg8da6b" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT03_S02_T01/" data-id="cjgyyj9h700097ws4kcqwucjn" class="article-share-link">Compartir</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejemplos/">ejemplos</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/CT05_S01_T01/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CT03_S02_T02/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          Comparación de métodos
+          T02 Parameter Type
         
       </div>
     </a>
   
+  
+    <a href="/CT03_S01_T01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">T01 Signals simulation introduction</div>
+    </a>
   
 </nav>
 
@@ -288,7 +210,7 @@ ans =
   <div class="widget-wrap">
     <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/">CT01 Planimetría</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/">CT02 Simulación de trayectorias</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S01-Introducion/">S01 Introdución</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S02-Clase-traj/">S02 Clase traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S03-Clase-supertraj/">S03 Clase supertraj</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/">CT03 Simulación de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S01-Introduccion/">S01 Introducción</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S02-Clase-BBSLevel/">S02 Clase BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S03-Clase-BFSLevel/">S03 Clase BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S04-Clase-BeaconBasedSgn/">S04 Clase BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S05-Clase-BeaconFreeSgn/">S05 Clase BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/">CT04 Procesamiento de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/">CT05 Comparación de métodos</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/S01-Introduccion/">S01 Introducción</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -315,7 +237,7 @@ ans =
   
     <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
   
-    <a href="/" class="mobile-nav-link">Download</a>
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
   
 </nav>
     

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>T02 Signal Filter by Beacons | Navindoor MATLAB Toolbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="En el posicionamiento por beacons, surge un problema recurrente, el cual nos obliga a trabajar con menos beacons de los que tenemos disponibles. Esto es debido a que muchos de estos AP, se encuentran">
+<meta property="og:type" content="article">
+<meta property="og:title" content="T02 Signal Filter by Beacons">
+<meta property="og:url" content="http://yoursite.com/CT03_S04_T02/index.html">
+<meta property="og:site_name" content="Navindoor MATLAB Toolbox">
+<meta property="og:description" content="En el posicionamiento por beacons, surge un problema recurrente, el cual nos obliga a trabajar con menos beacons de los que tenemos disponibles. Esto es debido a que muchos de estos AP, se encuentran">
+<meta property="og:locale" content="es">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons_01.png">
+<meta property="og:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons_02.png">
+<meta property="og:updated_time" content="2018-05-09T14:21:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T02 Signal Filter by Beacons">
+<meta name="twitter:description" content="En el posicionamiento por beacons, surge un problema recurrente, el cual nos obliga a trabajar con menos beacons de los que tenemos disponibles. Esto es debido a que muchos de estos AP, se encuentran">
+<meta name="twitter:image" content="http://yoursite.com/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons_01.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Navindoor MATLAB Toolbox</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CT03_S04_T02/" class="article-date">
+  <time datetime="2018-05-09T14:21:12.000Z" itemprop="datePublished">2018-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      T02 Signal Filter by Beacons
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>En el posicionamiento por <em>beacons</em>, surge un problema recurrente, el cual nos obliga a trabajar con menos beacons de los que tenemos disponibles. Esto es debido a que muchos de estos AP, se encuentran muy lejos, por lo que tienen mucho ruido. Lo mas conveniente es filtar los APs por m&aacute;s cercanos, sin embargo si supieramos las distancias a las que est&aacute;n los Aps no tendr&iacute;amos la necesidad de utilizar las se&ntilde;ales.</p>
+<p>En este caso para resolver este problema filtraremos por la se&ntilde;al RSS. El Aps que tenga menos atenuaci&oacute;n ser&aacute; considerado que esta m&aacute;s cerca, independientemente del ruido que tenga. Aprenderemos como filtrar otras se&ntilde;ales apartir de se&ntilde;al RSS</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">load(<span class="string">'data/levels/EI_UD_conn_AP_fakes.mat'</span>)</span><br><span class="line">load(<span class="string">'data/trajs/straj_in_conn_AP_fakes.mat'</span>)</span><br><span class="line">whos</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name          Size              Bytes  Class        Attributes</span><br><span class="line"></span><br><span class="line">building      1x1             1728061  build                  </span><br><span class="line">straj         1x1              142628  supertraj</span><br></pre></td></tr></table></figure>
+<p>Creamos lass tres se&ntilde;ales disponebles, en sus versiones por defecto</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSS_sgn = BeaconBasedSgn(building,straj,<span class="string">'RSS'</span>);</span><br><span class="line">ToF_sgn = BeaconBasedSgn(building,straj,<span class="string">'ToF'</span>);</span><br><span class="line">AoA_sgn = BeaconBasedSgn(building,straj,<span class="string">'AoA'</span>);</span><br></pre></td></tr></table></figure>
+<p>Conglomeramos las se&ntilde;ales en una lista de se&ntilde;ales. (Recuerde que esto se puede realizar porque RSS_sgn,ToF_sgn y AoA_sgn son objetos de la misma clase.)</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iBBS = [RSS_sgn,ToF_sgn,AoA_sgn]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">iBBS = </span><br><span class="line"></span><br><span class="line">  1x3 BeaconBasedSgn array with properties:</span><br><span class="line"></span><br><span class="line">    BBSLevels</span><br><span class="line">    label</span><br><span class="line">    sgn_function</span><br><span class="line">    beacons</span><br><span class="line">    dt</span><br><span class="line">    type</span><br><span class="line">    dt_connections</span><br></pre></td></tr></table></figure>
+<p>La funci&oacute;n  <em>filterAps</em> filtrar&aacute; todas las se&ntilde;ales por el valor del primero de la lista. Ademas se puede especificar si se quiere filtrar los Aps que tengan los valores mas altos o m&aacute;s bajos. Como en este caso <em>RSS_sgn</em> es la se&ntilde;al de atteniaci&oacute;n, filtraremos por el que tiene menos atenuaci&oacute;n</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NumMaxAps = <span class="number">4</span>; <span class="comment">% Probaremos considerando</span></span><br><span class="line">iBBS_with_filter= filterAps(iBBS,NumMaxAps,<span class="string">'direction'</span>,<span class="string">'descend'</span>);</span><br></pre></td></tr></table></figure>
+<p>Podemos comprobar que se ha filtrado</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iBBS(<span class="number">1</span>).BBSLevels(<span class="number">1</span>).ms(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  ms_node with properties:</span><br><span class="line"></span><br><span class="line">                 t: 0</span><br><span class="line">            values: [18.9856 22.6309 21.6568 16.4775 18.8450 20.4676]</span><br><span class="line">    indexs_beacons: [1 2 3 4 5 6]</span><br><span class="line">                 r: [13.8648 35.9272]</span><br><span class="line">             level: 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iBBS_with_filter(<span class="number">1</span>).BBSLevels(<span class="number">1</span>).ms(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans = </span><br><span class="line"></span><br><span class="line">  ms_node with properties:</span><br><span class="line"></span><br><span class="line">                 t: 0</span><br><span class="line">            values: [22.6309 21.6568 20.4676 18.9856]</span><br><span class="line">    indexs_beacons: [2 3 6 1]</span><br><span class="line">                 r: [13.8648 35.9272]</span><br><span class="line">             level: 0</span><br></pre></td></tr></table></figure>
+<p>Para mayor legibilidad creamos la variable <em>RSS_filter</em>, donde esta la se&ntilde;al RSS ya filtrada.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RSS_filter = iBBS_with_filter(<span class="number">1</span>);</span><br><span class="line">tablesRSS=signal2table(RSS_filter)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tablesRSS =</span><br><span class="line"></span><br><span class="line">  1x5 cell array</span><br><span class="line"></span><br><span class="line">  Columns 1 through 4</span><br><span class="line"></span><br><span class="line">    &#123;205x7 table&#125;    &#123;258x8 table&#125;    &#123;207x9 table&#125;    &#123;338x7 table&#125;</span><br><span class="line"></span><br><span class="line">  Column 5</span><br><span class="line"></span><br><span class="line">    &#123;232x12 table&#125;</span><br></pre></td></tr></table></figure>
+<p>Analizamos la se&ntilde;al en el primer tramo</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableRSS1 = tablesRSS&#123;<span class="number">1</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>Se ha creado una table con las columnas tiempo y los <em>beacons</em> de esa planta</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableRSS1(<span class="number">1</span>:<span class="number">5</span>,:)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x7 table</span><br><span class="line"></span><br><span class="line">    time    beacon_001    beacon_002    beacon_003    beacon_004    beacon_005    beacon_006</span><br><span class="line">    ____    __________    __________    __________    __________    __________    __________</span><br><span class="line"></span><br><span class="line">      0     18.986        22.631        21.657        0                  0        20.468    </span><br><span class="line">    0.1          0        22.023         21.76        0              20.84        20.949    </span><br><span class="line">    0.2          0        22.123        23.022        0             20.061         22.51    </span><br><span class="line">    0.3          0        20.891        21.624        0             19.972        21.553    </span><br><span class="line">    0.4     19.891             0         20.32        0             23.842        20.674</span><br></pre></td></tr></table></figure>
+<p>Gr&aacute;ficamente</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plot(tableRSS1&#123;:,<span class="number">1</span>&#125;,tableRSS1&#123;:,<span class="number">2</span>:end&#125;)</span><br><span class="line">xlabel("tiempo(s)")</span><br><span class="line">ylabel("Attenuaci&amp;oacute;n")</span><br><span class="line">title("Se&amp;ntilde;al RSS del 1&amp;ordm; tramo de la super-trayectoria ")</span><br><span class="line">legend(replace(tableRSS1.Properties.VariableNames(<span class="number">2</span>:<span class="keyword">end</span>),<span class="string">'_'</span>,<span class="string">' '</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons_01.png" alt=""></p>
+<p>Repitiendo lo mismo para el timepo de vuelo.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ToF_filter = iBBS_with_filter(<span class="number">2</span>);</span><br><span class="line"><span class="comment">% convertimos la se&amp;ntilde;al en una tabla.</span></span><br><span class="line">tableToF=signal2table(ToF_filter);</span><br><span class="line">tableToF1 = tableToF&#123;<span class="number">1</span>&#125;;</span><br><span class="line">tableToF1(<span class="number">1</span>:<span class="number">5</span>,:)</span><br><span class="line"><span class="comment">% ploteamos la senal</span></span><br><span class="line">plot(tableToF1&#123;:,<span class="number">1</span>&#125;,tableToF1&#123;:,<span class="number">2</span>:end&#125;)</span><br><span class="line">xlabel("tiempo(s)")</span><br><span class="line">ylabel("ToF(s)")</span><br><span class="line">title("Se&amp;ntilde;al ToF del 1&amp;ordm; tramo de la super-trayectoria ")</span><br><span class="line">legend(replace(tableToF1.Properties.VariableNames(<span class="number">2</span>:<span class="keyword">end</span>),<span class="string">'_'</span>,<span class="string">' '</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans =</span><br><span class="line"></span><br><span class="line">  5x7 table</span><br><span class="line"></span><br><span class="line">    time    beacon_001    beacon_002    beacon_003    beacon_004    beacon_005    beacon_006</span><br><span class="line">    ____    __________    __________    __________    __________    __________    __________</span><br><span class="line"></span><br><span class="line">      0     1.7926e-07    4.4183e-07     4.293e-07    0                      0    3.5833e-07</span><br><span class="line">    0.1              0    4.4013e-07     4.443e-07    0             3.6908e-07    3.5482e-07</span><br><span class="line">    0.2              0    4.3127e-07    4.2889e-07    0             3.7771e-07    3.3629e-07</span><br><span class="line">    0.3              0    4.3689e-07    4.3347e-07    0             3.6341e-07    3.6243e-07</span><br><span class="line">    0.4     1.8568e-07             0    4.2103e-07    0              3.587e-07    3.3227e-07</span><br></pre></td></tr></table></figure>
+<p><img src="/images/CT03_Signals_Simulation/S04_BeaconBasedSgn/T02_Signal_Filter_by_Beacons_02.png" alt=""></p>
+<p>de esta manera la se&ntilde;al ToF queda filtrada por la se&ntilde;al RSS.</p>
+<h2 id="Save-Section"><a href="#Save-Section" class="headerlink" title="Save Section"></a>Save Section</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save(<span class="string">'data/signals/SgnsBBS_filter_by_RSS'</span>,<span class="string">'iBBS'</span>)</span><br></pre></td></tr></table></figure>
+<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CT03_S04_T02/" data-id="cjgyyj9hc000n7ws43567emzb" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/CT03_S05_T01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">T01 Introduction to BeaconFreeSgn</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jesus Oroya<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
+  
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
