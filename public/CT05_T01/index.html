@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>T01 Philosophy of comparison | Navindoor MATLAB Toolbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Fecha de ultima revisi&amp;oacute;n 21/06/2018 Para la comparaci&amp;oacute;n de m&amp;eacute;todos, hay que entend&amp;eacute;r que todas las funciones que se puede realizar a una objecto supertraj, se puede aplicar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="T01 Philosophy of comparison">
+<meta property="og:url" content="http://yoursite.com/CT05_T01/index.html">
+<meta property="og:site_name" content="Navindoor MATLAB Toolbox">
+<meta property="og:description" content="Fecha de ultima revisi&amp;oacute;n 21/06/2018 Para la comparaci&amp;oacute;n de m&amp;eacute;todos, hay que entend&amp;eacute;r que todas las funciones que se puede realizar a una objecto supertraj, se puede aplicar">
+<meta property="og:locale" content="es">
+<meta property="og:updated_time" content="2018-06-21T09:55:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T01 Philosophy of comparison">
+<meta name="twitter:description" content="Fecha de ultima revisi&amp;oacute;n 21/06/2018 Para la comparaci&amp;oacute;n de m&amp;eacute;todos, hay que entend&amp;eacute;r que todas las funciones que se puede realizar a una objecto supertraj, se puede aplicar">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Navindoor MATLAB Toolbox</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-examples/CT05_Methods_Comparison/T01_Philosophy_of_comparison" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CT05_T01/" class="article-date">
+  <time datetime="2018-06-21T09:55:56.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Examples/">Examples</a>►<a class="article-category-link" href="/categories/Examples/CT05-Methods-Comparison/">CT05 Methods Comparison</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      T01 Philosophy of comparison
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Fecha de ultima revisi&oacute;n 21/06/2018</p>
+<p>Para la comparaci&oacute;n de m&eacute;todos, hay que entend&eacute;r que todas las funciones que se puede realizar a una objecto supertraj, se puede aplicar para una lista de objectos supertraj</p>
+<p>Es por ello, que el m&oacute;dulo de comparaci&oacute;n de m&eacute;todos, no es m&aacute;s que la extensi&oacute;n de los m&eacute;todos que ya se pueden hacer a una supertrayectoria, a una lista de supertrayectorias</p>
+<p>Por ejemplo la funcion animation, se puede ejecutar</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%animation( supertraj_object , building_object)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Si tenemos varias supertrayectorias con la misma timeline, entonces podemos realizar la animaci&oacute;n de varias <em>supertraj</em>s</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%animation( [ supertraj_object_1 supertraj_object_2 ] , building_object)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>de la misma forma que la funci&oacute;n ecdf, que nos muestra la funci&oacute;n de distribuci&oacute;n de acumulaci&oacute;n del error puede ser invocada</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%ecdf(straj_reference, supertraj_object ])</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Sin embargo, tambien se pueden ver los errores para dos trayectorias Utilizando el objecto <strong>straj_reference</strong>, como trayectoria real.</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token comment" spellcheck="true">%ecdf(straj_reference, [ supertraj_object_1 supertraj_object_2 ])</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CT05_T01/" data-id="cjiodfpgc000k3fs46al1w2ej" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/CT01_T01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">T01 Basic elements of planimetry module</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/">Examples</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT01-Planimetry/">CT01 Planimetry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT03-Signals-Simulation/">CT03 Signals Simulation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT04-Signals-Processing/">CT04 Signals Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT05-Methods-Comparison/">CT05 Methods Comparison</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jesus Oroya<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
+  
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>T04 Unscented Kalman Filter to super trajectories | Navindoor MATLAB Toolbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Fecha de ultima revisi&amp;oacute;n 28/05/2018 Cargamos un objetos necesarios para la realizaci&amp;oacute;n del ejercicio clear; load(&apos;data/builds/EI_UD_conn_AP_fakes_more_APS.mat&apos;) load(&apos;traj_p1.mat&apos;) %load">
+<meta property="og:type" content="article">
+<meta property="og:title" content="T04 Unscented Kalman Filter to super trajectories">
+<meta property="og:url" content="http://yoursite.com/CT04_T04/index.html">
+<meta property="og:site_name" content="Navindoor MATLAB Toolbox">
+<meta property="og:description" content="Fecha de ultima revisi&amp;oacute;n 28/05/2018 Cargamos un objetos necesarios para la realizaci&amp;oacute;n del ejercicio clear; load(&apos;data/builds/EI_UD_conn_AP_fakes_more_APS.mat&apos;) load(&apos;traj_p1.mat&apos;) %load">
+<meta property="og:locale" content="es">
+<meta property="og:image" content="http://yoursite.com/images/CT04_Signals_Processing/T04_Unscented_Kalman_Filter_to_super_trajectories_01.png">
+<meta property="og:updated_time" content="2018-06-21T09:40:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T04 Unscented Kalman Filter to super trajectories">
+<meta name="twitter:description" content="Fecha de ultima revisi&amp;oacute;n 28/05/2018 Cargamos un objetos necesarios para la realizaci&amp;oacute;n del ejercicio clear; load(&apos;data/builds/EI_UD_conn_AP_fakes_more_APS.mat&apos;) load(&apos;traj_p1.mat&apos;) %load">
+<meta name="twitter:image" content="http://yoursite.com/images/CT04_Signals_Processing/T04_Unscented_Kalman_Filter_to_super_trajectories_01.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Navindoor MATLAB Toolbox</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
+        
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-examples/CT04_Signals_Processing/T04_Unscented_Kalman_Filter_to_super_trajectories" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CT04_T04/" class="article-date">
+  <time datetime="2018-06-21T09:40:52.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Examples/">Examples</a>►<a class="article-category-link" href="/categories/Examples/CT04-Signals-Processing/">CT04 Signals Processing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      T04 Unscented Kalman Filter to super trajectories
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Fecha de ultima revisi&oacute;n 28/05/2018</p>
+<p>Cargamos un objetos necesarios para la realizaci&oacute;n del ejercicio</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab">clear<span class="token punctuation">;</span>
+<span class="token function">load</span><span class="token punctuation">(</span><span class="token string">'data/builds/EI_UD_conn_AP_fakes_more_APS.mat'</span><span class="token punctuation">)</span>
+<span class="token function">load</span><span class="token punctuation">(</span><span class="token string">'traj_p1.mat'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">%load(</span><span class="token string">'prueba.mat'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab"><code class="language-matlab">straj <span class="token operator">=</span> <span class="token function">velocity</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span>building<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">% Creamos una se&amp;ntilde;al RSS, con sus par&amp;aacute;metros por defecto</span>
+iRSS   <span class="token operator">=</span> <span class="token function">BeaconBasedSgn</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span>building<span class="token punctuation">,</span><span class="token string">'RSS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+iBaro  <span class="token operator">=</span> <span class="token function">BeaconFreeSgn</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span>building<span class="token punctuation">,</span><span class="token string">'Baro'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+iToF   <span class="token operator">=</span> <span class="token function">BeaconBasedSgn</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span>building<span class="token punctuation">,</span><span class="token string">'ToF'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>
+straj = 
+
+  supertraj with properties:
+
+             trajs: [1x5 traj]
+       connections: [1x4 wall]
+    dt_connections: {1x4 cell}
+               len: 5
+                dt: 0.1000
+            dt_max: 264.3000
+           signals: {}
+             label: []
+       description: []
+
+
+</code></pre><p>creamos del filtro de kalman vector de estado inicial [x y vx vy h]</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab">u0 <span class="token operator">=</span> <span class="token function">step</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'velocity'</span><span class="token punctuation">,</span>true<span class="token punctuation">,</span><span class="token string">'hight'</span><span class="token punctuation">,</span>true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+h0 <span class="token operator">=</span> u0<span class="token punctuation">.</span>h<span class="token punctuation">;</span>
+u0 <span class="token operator">=</span>  <span class="token punctuation">[</span>u0<span class="token punctuation">.</span>x <span class="token punctuation">;</span> u0<span class="token punctuation">.</span>y <span class="token punctuation">;</span> <span class="token number">0</span> <span class="token punctuation">;</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+n0 <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>building<span class="token punctuation">.</span>height_levels <span class="token operator">-</span> h0<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dt <span class="token operator">=</span> straj<span class="token punctuation">.</span>dt<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="level"><a href="#level" class="headerlink" title="level"></a>level</h2><pre class="line-numbers language-matlab"><code class="language-matlab">UKF_hight <span class="token operator">=</span> <span class="token function">UKF</span><span class="token punctuation">(</span><span class="token operator">@</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token function">h</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span>dt<span class="token operator">*</span><span class="token function">h</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">]</span>    <span class="token punctuation">,</span> <span class="token punctuation">...</span> <span class="token comment" spellcheck="true">% funcion de trancision</span>
+                <span class="token operator">@</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token function">hight2pressure</span><span class="token punctuation">(</span><span class="token function">h</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token punctuation">,</span> <span class="token punctuation">...</span> <span class="token comment" spellcheck="true">% funcion de medidas</span>
+                <span class="token punctuation">[</span>h0<span class="token punctuation">;</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                            <span class="token comment" spellcheck="true">% condicion inicial</span>
+<span class="token comment" spellcheck="true">% asignamos la varianza correspondientes</span>
+UKF_hight<span class="token punctuation">.</span>MeasurementNoise <span class="token operator">=</span> <span class="token number">0.025</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">% Dando la mis inportancia a las medidas que al modelo.</span>
+UKF_hight<span class="token punctuation">.</span>ProcessNoise     <span class="token operator">=</span> <span class="token function">diag</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.0125</span>  <span class="token number">0.0125</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="traj"><a href="#traj" class="headerlink" title="traj"></a>traj</h2><pre class="line-numbers language-matlab"><code class="language-matlab">UKF_xy <span class="token operator">=</span> <span class="token function">UKF</span><span class="token punctuation">(</span><span class="token operator">@</span>StateTransition<span class="token punctuation">,</span>  <span class="token punctuation">...</span>
+             <span class="token operator">@</span>Measurement<span class="token punctuation">,</span>      <span class="token punctuation">...</span>
+             u0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+UKF_xy<span class="token punctuation">.</span>ProcessNoise <span class="token operator">=</span> <span class="token function">diag</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.5</span> <span class="token number">0.5</span> <span class="token number">0.5</span><span class="token operator">^</span><span class="token number">2</span> <span class="token number">0.5</span><span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+RSS_noise <span class="token operator">=</span> <span class="token number">2.0</span><span class="token punctuation">;</span>ToF_noise <span class="token operator">=</span><span class="token number">1e-8</span><span class="token punctuation">;</span>
+
+index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">% simulaci&amp;oacute;n en el tiempo</span>
+tline <span class="token operator">=</span> <span class="token function">timeline</span><span class="token punctuation">(</span>straj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+estimation <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span><span class="token function">length</span><span class="token punctuation">(</span>tline<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">% [x y h vx vy t]</span>
+
+<span class="token keyword">for</span> t <span class="token operator">=</span> tline
+    index <span class="token operator">=</span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">% Medida del Barometro</span>
+    <span class="token comment" spellcheck="true">% =====================</span>
+    result <span class="token operator">=</span> <span class="token function">step</span><span class="token punctuation">(</span>iBaro<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">% Reducimos ruido con un filtro de Kalman</span>
+    <span class="token function">predict</span><span class="token punctuation">(</span>UKF_hight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vector_hight <span class="token operator">=</span> <span class="token function">correct</span><span class="token punctuation">(</span>UKF_hight<span class="token punctuation">,</span>result<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">% Guardamos la altura predicha</span>
+    hestimada <span class="token operator">=</span> <span class="token function">vector_hight</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">% Buscamos a que nivel podria coresponder la altura medida</span>
+    <span class="token punctuation">[</span>minvalue<span class="token punctuation">,</span> min_index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>building<span class="token punctuation">.</span>height_levels <span class="token operator">-</span> hestimada<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    n_current <span class="token operator">=</span> min_index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">%  consideramos que estamos en una planta</span>
+    <span class="token keyword">if</span> minvalue <span class="token operator">&amp;</span>lt<span class="token punctuation">;</span> <span class="token number">0.5</span>
+            <span class="token comment" spellcheck="true">% ALtura en la planta</span>
+            hight_level <span class="token operator">=</span> building<span class="token punctuation">.</span><span class="token function">height_levels</span><span class="token punctuation">(</span>n_current<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">% Predecimos con el modelo de medidas</span>
+            <span class="token comment" spellcheck="true">% ===================================</span>
+            <span class="token function">predict</span><span class="token punctuation">(</span>UKF_xy<span class="token punctuation">,</span>dt<span class="token punctuation">)</span>
+
+            <span class="token comment" spellcheck="true">% Medida de ToF y RSS</span>
+            <span class="token comment" spellcheck="true">% ====================</span>
+            <span class="token comment" spellcheck="true">% Medimos las se&amp;ntilde;ales</span>
+            result_RSS <span class="token operator">=</span> <span class="token function">step</span><span class="token punctuation">(</span>iRSS<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            result_ToF <span class="token operator">=</span> <span class="token function">step</span><span class="token punctuation">(</span>iToF<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token operator">~</span><span class="token function">isempty</span><span class="token punctuation">(</span>result_RSS<span class="token punctuation">.</span>values<span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true">% AP position</span>
+                u <span class="token operator">=</span> <span class="token function">vec2mat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>result_RSS<span class="token punctuation">.</span>beacons<span class="token punctuation">.</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">% Construimos vector de medidas</span>
+                z <span class="token operator">=</span> <span class="token punctuation">[</span>result_RSS<span class="token punctuation">.</span>values<span class="token operator">'</span><span class="token punctuation">;</span>result_ToF<span class="token punctuation">.</span>values<span class="token operator">'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">% Matrix de covarianza de medidas</span>
+                UKF_xy<span class="token punctuation">.</span>MeasurementNoise <span class="token operator">=</span> <span class="token function">diag</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token function">repmat</span><span class="token punctuation">(</span>RSS_noise<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token function">length</span><span class="token punctuation">(</span>result_RSS<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token punctuation">...</span> <span class="token comment" spellcheck="true">% atualizamos las dimensiones de la</span>
+                                                 <span class="token function">repmat</span><span class="token punctuation">(</span>ToF_noise<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token function">length</span><span class="token punctuation">(</span>result_ToF<span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">% matrix de covarianza del modelo de</span>
+                <span class="token comment" spellcheck="true">% Corregimos                                                                         % medidas</span>
+                <span class="token comment" spellcheck="true">% ===================</span>
+                <span class="token function">correct</span><span class="token punctuation">(</span>UKF_xy<span class="token punctuation">,</span>z<span class="token punctuation">,</span>u<span class="token punctuation">)</span>
+            <span class="token keyword">end</span>
+
+            <span class="token comment" spellcheck="true">% Guardamos la posicion estimada</span>
+            <span class="token comment" spellcheck="true">% ==============================</span>
+            x <span class="token operator">=</span> UKF_xy<span class="token punctuation">.</span><span class="token function">State</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> y <span class="token operator">=</span> UKF_xy<span class="token punctuation">.</span><span class="token function">State</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> vx <span class="token operator">=</span> UKF_xy<span class="token punctuation">.</span><span class="token function">State</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> vy <span class="token operator">=</span> UKF_xy<span class="token punctuation">.</span><span class="token function">State</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            h <span class="token operator">=</span> hight_level<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">% formateamos</span>
+            <span class="token function">estimation</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">[</span>x y h vx vy t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+    <span class="token comment" spellcheck="true">%  consideramos que estamos en la transicion de una planta</span>
+            ilevel <span class="token operator">=</span> building<span class="token punctuation">.</span><span class="token function">levels</span><span class="token punctuation">(</span>n_current <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            h <span class="token operator">=</span> hestimada<span class="token punctuation">;</span>
+            inode <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">[</span>x y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            min_s <span class="token operator">=</span> Inf<span class="token punctuation">;</span> min_e <span class="token operator">=</span> Inf<span class="token punctuation">;</span>
+
+            staris <span class="token operator">=</span> ilevel<span class="token punctuation">.</span>stairs<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token operator">~</span><span class="token function">isempty</span><span class="token punctuation">(</span>staris<span class="token punctuation">)</span>
+                distance_stairs <span class="token operator">=</span> <span class="token function">distn</span><span class="token punctuation">(</span>inode<span class="token punctuation">,</span>staris<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">[</span>min_s <span class="token punctuation">,</span> ind_s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>distance_stairs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">end</span>
+            elevators <span class="token operator">=</span> ilevel<span class="token punctuation">.</span>elevators<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token operator">~</span><span class="token function">isempty</span><span class="token punctuation">(</span>elevators<span class="token punctuation">)</span>
+                distance_elevator <span class="token operator">=</span> <span class="token function">distn</span><span class="token punctuation">(</span>inode<span class="token punctuation">,</span>elevators<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">[</span>min_e <span class="token punctuation">,</span> ind_e<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>distance_elevator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">end</span>
+
+            <span class="token keyword">if</span> min_e <span class="token operator">&amp;</span>lt<span class="token punctuation">;</span> min_s
+                x <span class="token operator">=</span> ilevel<span class="token punctuation">.</span><span class="token function">elevators</span><span class="token punctuation">(</span>ind_e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                y <span class="token operator">=</span> ilevel<span class="token punctuation">.</span><span class="token function">elevators</span><span class="token punctuation">(</span>ind_e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                x <span class="token operator">=</span> ilevel<span class="token punctuation">.</span><span class="token function">stairs</span><span class="token punctuation">(</span>ind_s<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                y <span class="token operator">=</span> ilevel<span class="token punctuation">.</span><span class="token function">stairs</span><span class="token punctuation">(</span>ind_s<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">end</span>
+            vx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> vy <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">% Guardamos la posicion estimada</span>
+            <span class="token comment" spellcheck="true">% ==============================</span>
+            <span class="token comment" spellcheck="true">% formateamos</span>
+            <span class="token function">estimation</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">[</span>x y h vx vy t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            UKF_xy<span class="token punctuation">.</span>State <span class="token operator">=</span> <span class="token punctuation">[</span>x y vx vy<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">end</span>
+
+<span class="token keyword">end</span>
+
+esti_straj_UKF <span class="token operator">=</span> <span class="token function">mat2supertraj</span><span class="token punctuation">(</span>estimation<span class="token punctuation">,</span>building<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">%animation([straj esti_straj_UKF  ],building,</span><span class="token string">'xx'</span><span class="token punctuation">,</span><span class="token number">5.0</span><span class="token punctuation">)</span>
+
+<span class="token function">ecdf</span><span class="token punctuation">(</span>straj<span class="token punctuation">,</span>esti_straj_UKF<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token keyword">function</span> x_new <span class="token operator">=</span> <span class="token function">StateTransition</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>dt<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">%STATETRANSITION</span>
+%
+
+    F <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token number">1</span> <span class="token number">0</span> dt <span class="token number">0</span>  <span class="token punctuation">;</span> <span class="token punctuation">...</span>
+          <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span>  dt <span class="token punctuation">;</span> <span class="token punctuation">...</span>
+          <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span>  <span class="token number">0</span>  <span class="token punctuation">;</span> <span class="token punctuation">...</span>
+          <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>  <span class="token number">1</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    x_new <span class="token operator">=</span> F<span class="token operator">*</span>x<span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">function</span> y <span class="token operator">=</span> <span class="token function">Measurement</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>u<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">%h(s)</span>
+<span class="token comment" spellcheck="true">%MEASUREMENT</span>
+<span class="token comment" spellcheck="true">%  u = matrix [mx2] of beacons positions</span>
+<span class="token comment" spellcheck="true">%  x = matrix [nx1], [x,y,vx,vy]</span>
+%
+    c <span class="token operator">=</span> <span class="token number">3e8</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">[</span>nbeacon<span class="token punctuation">,</span><span class="token operator">~</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    y <span class="token operator">=</span> <span class="token function">zeros</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>nbeacon<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">y</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>nbeacon<span class="token punctuation">)</span>     <span class="token operator">=</span> <span class="token number">10</span><span class="token operator">*</span><span class="token function">log10</span><span class="token punctuation">(</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">x</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">x</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">y</span><span class="token punctuation">(</span>nbeacon<span class="token operator">+</span><span class="token number">1</span><span class="token operator">:</span><span class="token keyword">end</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">x</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">x</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">u</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token operator">.^</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span>c<span class="token punctuation">;</span>
+
+<span class="token keyword">end</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/images/CT04_Signals_Processing/T04_Unscented_Kalman_Filter_to_super_trajectories_01.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CT04_T04/" data-id="cjiocwc8y000d3fs46h63loft" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/CT01_T01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          T01 Basic elements of planimetry module
+        
+      </div>
+    </a>
+  
+  
+    <a href="/CT04_T03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">T03 Extended Kalman Filter to super trajectories</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/">Examples</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT01-Planimetry/">CT01 Planimetry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT03-Signals-Simulation/">CT03 Signals Simulation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT04-Signals-Processing/">CT04 Signals Processing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Examples/CT05-Methods-Comparison/">CT05 Methods Comparison</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jesus Oroya<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
+  
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

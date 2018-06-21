@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
 
   
-  <title>T01 Signals simulation introduction | Navindoor MATLAB Toolbox</title>
+  <title>T01 Introduction Signals Simulations | Navindoor MATLAB Toolbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+  <meta name="description" content="Fecha de ultima revisi&amp;oacute;n 15/05/2018 La secci&amp;oacute;n de generaci&amp;oacute;n de se&amp;ntilde;ales abarca distintos de tipo de se&amp;ntilde;ales, como pueden ser:  RSS (Indicador de fuerza de la se&amp;ntil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="T01 Signals simulation introduction">
+<meta property="og:title" content="T01 Introduction Signals Simulations">
 <meta property="og:url" content="http://yoursite.com/CT03_S01_T01/index.html">
 <meta property="og:site_name" content="Navindoor MATLAB Toolbox">
-<meta property="og:description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+<meta property="og:description" content="Fecha de ultima revisi&amp;oacute;n 15/05/2018 La secci&amp;oacute;n de generaci&amp;oacute;n de se&amp;ntilde;ales abarca distintos de tipo de se&amp;ntilde;ales, como pueden ser:  RSS (Indicador de fuerza de la se&amp;ntil">
 <meta property="og:locale" content="es">
-<meta property="og:updated_time" content="2018-05-09T14:37:05.000Z">
+<meta property="og:updated_time" content="2018-05-15T08:33:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T01 Signals simulation introduction">
-<meta name="twitter:description" content="La simulaci&amp;oacute;n de se&amp;ntilde;ales sint&amp;eacute;ticas es la principal motivaci&amp;oacute;n de este toolbox. Ya definida la clase traj se puede generar se&amp;ntilde;ales dependientes de balizas o se&amp;ntild">
+<meta name="twitter:title" content="T01 Introduction Signals Simulations">
+<meta name="twitter:description" content="Fecha de ultima revisi&amp;oacute;n 15/05/2018 La secci&amp;oacute;n de generaci&amp;oacute;n de se&amp;ntilde;ales abarca distintos de tipo de se&amp;ntilde;ales, como pueden ser:  RSS (Indicador de fuerza de la se&amp;ntil">
   
   
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
   <link rel="stylesheet" href="/css/style.css">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -64,14 +63,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-CT03_Signals_Simulation/S01_Introduction/T01_Signals_simulation_introduction" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CT03_Signals_Simulation/S01_Examples/T01_Introduction_Signals_Simulations" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CT03_S01_T01/" class="article-date">
-  <time datetime="2018-05-09T14:37:05.000Z" itemprop="datePublished">2018-05-09</time>
+  <time datetime="2018-05-15T08:33:08.000Z" itemprop="datePublished">2018-05-15</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a>
+    <a class="article-category-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a>►<a class="article-category-link" href="/categories/CT03-Signals-Simulation/S01-Examples/">S01 Examples</a>
   </div>
 
   </div>
@@ -82,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      T01 Signals simulation introduction
+      T01 Introduction Signals Simulations
     </h1>
   
 
@@ -90,29 +89,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>La simulaci&oacute;n de se&ntilde;ales sint&eacute;ticas es la principal motivaci&oacute;n de este toolbox. Ya definida la clase <a href="/CT02_S02_T01/"><em>traj</em></a> se puede generar se&ntilde;ales dependientes de balizas o se&ntilde;ales independientes de balizas.</p>
-<p>Esta divisi&oacute;n es natural en la  posicionamiento(<strong>1</strong>), y en la implementaci&oacute;n de estas se&ntilde;ales tambi&eacute;n surge. Por lo que las distintas se&ntilde;ales que se pueden generar en la aplicaci&oacute;n se pueden agrupar en la sigiente manera:</p>
-<h2 id="BeaconBasedSgn"><a href="#BeaconBasedSgn" class="headerlink" title="BeaconBasedSgn:"></a><a href="/CT03_S04_T01/">BeaconBasedSgn</a>:</h2><p>Se&ntilde;ales basadas en Beacons, es decir se&ntilde;ales generadas a partir de informaci&oacute;n por una serie de puntos de acceso, de las cuales sabemos su posici&oacute;n en la planimetr&iacute;a.</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Fecha de ultima revisi&oacute;n 15/05/2018</p>
+<p>La secci&oacute;n de generaci&oacute;n de se&ntilde;ales abarca distintos de tipo de se&ntilde;ales, como pueden ser:</p>
 <ul>
-<li>RSS</li>
-<li>AoA</li>
-<li>ToF</li>
+<li>RSS (Indicador de fuerza de la se&ntilde;al recibida)</li>
+<li>ToF (Tiempo de vuelo)</li>
+<li>AoA (Angulo de llegada)</li>
+<li>Giroscopio (<em>Giro</em>)</li>
+<li>Magnet&oacute;metro (<em>Magne</em>)</li>
+<li>Aceler&oacute;metro (<em>Acel</em>)</li>
+<li>Bar&oacute;metro (<em>baro</em>)</li>
 </ul>
-<h2 id="BeaconFreeSgn"><a href="#BeaconFreeSgn" class="headerlink" title="BeaconFreeSgn:"></a><a href="/CT03_S05_T01/">BeaconFreeSgn</a>:</h2><p>Se&ntilde;ales generadas por el propia trayectoria con interaci&oacute;n con la planimetr&iacute;a.</p>
+<p>Estas distintas se&ntilde;ales se pueden dividir en dos tipos claramente diferenciados, estos son:</p>
 <ul>
-<li>Aceler&oacute;metro</li>
-<li>Bar&oacute;metro</li>
-<li>Magnet&oacute;metro</li>
+<li><strong><em>BeaconBasedSgn</em></strong> (Se&ntilde;ales basados en balizas) : Estos pueden ser por ejemplo: RSS, ToF o AoA; ya que es necesario conocer la posici&oacute;n de estos puntos de acceso para poder simular la se&ntilde;al. Con la posici&oacute;n de el objeto que queremos localizar y la posici&oacute;n de los puntos de acceso, nos basta, sin embargo existen algunas caracter&iacute;sticas pueden depender de la planimetr&iacute;a o de alguna caracter&iacute;stica de la trayectoria en su conjunto. Es por ello que a la hora de generar la se&ntilde;al, existe una funci&oacute;n interna del constructor <em>BeaconBasedSgn</em> que utiliza las variables de entrada: <em>(index_beacon,index_node,ilevel,itraj,parameters)</em>. Esta funci&oacute;n es un parametr&oacute; por defecto, que puede ser modificado para utilizar el m&eacute;todo de simulaci&oacute;n que se quiera. Por otra parte, en esta clase no se cuenta con las se&ntilde;al entre plantas, ya que se ha decidido que por simplicidad, las se&ntilde;ales  <em>BeaconBasedSgn</em>, ser&aacute;n nulas cuando halla transici&oacute;n entre plantas.</li>
 </ul>
-<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referencias"></a>Referencias</h2><ol>
-<li>[Indoor positioning system - Wikipedia]&lt;<a href="https://en.wikipedia.org/wiki/Indoor_positioning_system&gt;" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Indoor_positioning_system&gt;</a></li>
-</ol>
+<ul>
+<li><strong><em>BeaconFreeSgn</em></strong> (Se&ntilde;ales libres de balizas) : Por otra lado, existe otro tipo de se&ntilde;ales que no dependen de balizas, por lo que su funcionamiento interno es distinto. Estos pueden ser el Giroscopio, Magnet&oacute;metro, Aceler&oacute;metro o el Bar&oacute;metro. De la misma forma que  <em>BeaconBasedSgn</em>, este constructor tiene una funci&oacute;n interna que genera la se&ntilde;al apartir de las variables de entrada: (index_inode,ilevel,itraj,parameters). Es decir, de el punto donde se este, de la planimetr&iacute;a, de la trayectoria total, y de par&aacute;metros adicionales (usualmente usado para introducir la desviaci&oacute;n t&iacute;pica del ruido de la se&ntilde;al). Por otra parte, en la transici&oacute;n entre plantas es necesario definir otra funci&oacute;n que nos diga como generar la se&ntilde;al. Esta secci&oacute;n de se&ntilde;al a diferencia a la se&ntilde;al en una planta se genera de golpe, por una funci&oacute;n interna llamada <em>sgn_function_interlevel</em>. Esta funci&oacute;n esta asignada por defecto, sin embargo tambien es modificable por un parametro llamado de la misma forma (sgn_function_interlevel)</li>
+</ul>
+<p>En siguientes entradas, se vera en m&aacute;s detalle el funcionamiento de estos dos constructores.</p>
+<p>Sin embargo, que algo m&aacute;s por decir. Dentro ya de una de los tipo de se&ntilde;ales, existe un subtipo de se&ntilde;al que es m&aacute;s b&aacute;sica. Esto se debe a que las se&ntilde;ales antes mencionadas, genera una se&ntilde;al total, dado una trayectoria entre planta y por tanto a trav&eacute;s de un edif&iacute;cio. Sin embargo, primero se contruyo las clases que solo utilizan una trayectoria en una misma planta, y la planta por donde trascurre. Estas se llaman igual que los constructores anteriores, pero con la palabra <em>Level</em> para indicar que solo se refiere a una planta. Estas son:</p>
+<ul>
+<li><strong><em>BeaconBasedSgnLevel</em></strong></li>
+<li><strong><em>BeaconFreeSgnLevel</em></strong></li>
+</ul>
+<h2 id="Referencias"><a href="#Referencias" class="headerlink" title="Referencias"></a>Referencias</h2><p>[1]</p>
 <p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT03_S01_T01/" data-id="cjh058ojy0007pas4htc91eql" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT03_S01_T01/" data-id="cjh7k5e39000r5as494qehu7a" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -125,15 +132,15 @@
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          T01 Introduction to BBSLevel class
+          T01 Introduction to BeaconBasedSgnLevel class
         
       </div>
     </a>
   
   
-    <a href="/CT02_S02_T02/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CT03_S03_T01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">T02 Select posible space</div>
+      <div class="article-nav-title">T01 Introduction to BeaconFreeSgnLevel class</div>
     </a>
   
 </nav>
@@ -149,7 +156,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-Level/">S03 Level</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-traj/">S01 traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-potential-method/">S02 potential method</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Introduction/">S01 Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BBSLevel/">S02 BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BFSLevel/">S03 BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S02-node-Class/">S02 node Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-wall-Class/">S03 wall Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S04-level-Class/">S04 level Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S05-build-Class/">S05 build Class</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-traj-class/">S02 traj class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S03-supertraj-class/">S03 supertraj class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S05-network-class/">S05 network class</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BeaconBasedSgnLevel/">S02 BeaconBasedSgnLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BeaconFreeSgnLevel/">S03 BeaconFreeSgnLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S03-Unscented-Kalman-Filter/">S03 Unscented Kalman Filter</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Methods-Comparison/">CT05 Methods Comparison</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Methods-Comparison/S01-Examples/">S01 Examples</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -192,6 +199,6 @@
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

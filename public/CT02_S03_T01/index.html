@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
 
   
-  <title>Clase supertraj | Navindoor MATLAB Toolbox</title>
+  <title>T01 Introduction to wall class | Navindoor MATLAB Toolbox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Las trayectorias humanas estas definidas como una clase supertraj">
-<meta name="keywords" content="ejemplos">
+  <meta name="description" content="Operaciones b&amp;aacute;sicas con la clase LevelCrearemos un nivel b&amp;aacute;sico para ver las funciones mas b&amp;aacute;sicas que podemos realizar apartir de este objeto. clear; n1 = node([10 10]) ; n2 = no">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Clase supertraj">
+<meta property="og:title" content="T01 Introduction to wall class">
 <meta property="og:url" content="http://yoursite.com/CT02_S03_T01/index.html">
 <meta property="og:site_name" content="Navindoor MATLAB Toolbox">
-<meta property="og:description" content="Las trayectorias humanas estas definidas como una clase supertraj">
+<meta property="og:description" content="Operaciones b&amp;aacute;sicas con la clase LevelCrearemos un nivel b&amp;aacute;sico para ver las funciones mas b&amp;aacute;sicas que podemos realizar apartir de este objeto. clear; n1 = node([10 10]) ; n2 = no">
 <meta property="og:locale" content="es">
-<meta property="og:updated_time" content="2018-05-04T12:51:58.000Z">
+<meta property="og:updated_time" content="2018-05-10T12:50:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Clase supertraj">
-<meta name="twitter:description" content="Las trayectorias humanas estas definidas como una clase supertraj">
+<meta name="twitter:title" content="T01 Introduction to wall class">
+<meta name="twitter:description" content="Operaciones b&amp;aacute;sicas con la clase LevelCrearemos un nivel b&amp;aacute;sico para ver las funciones mas b&amp;aacute;sicas que podemos realizar apartir de este objeto. clear; n1 = node([10 10]) ; n2 = no">
   
   
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
   <link rel="stylesheet" href="/css/style.css">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -51,7 +49,7 @@
         
           <a class="main-nav-link" href="https://github.com/joroya/navindoor">GitHub</a>
         
-          <a class="main-nav-link" href="/">Download</a>
+          <a class="main-nav-link" href="https://github.com/joroya/navindoor/archive/master.zip">Download</a>
         
       </nav>
       <nav id="sub-nav">
@@ -65,14 +63,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-CT02/S03/01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CT02_Trayectories_Simulation/S03_supertraj_class/T01_Introduction_to_wall_class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/CT02_S03_T01/" class="article-date">
-  <time datetime="2018-05-04T05:31:49.000Z" itemprop="datePublished">2018-05-04</time>
+  <time datetime="2018-05-10T12:50:16.000Z" itemprop="datePublished">2018-05-10</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CT02-Simulacion-de-trayectorias/">CT02 Simulación de trayectorias</a>►<a class="article-category-link" href="/categories/CT02-Simulacion-de-trayectorias/S03-Clase-supertraj/">S03 Clase supertraj</a>
+    <a class="article-category-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a>►<a class="article-category-link" href="/categories/CT02-Trayectories-Simulation/S03-supertraj-class/">S03 supertraj class</a>
   </div>
 
   </div>
@@ -83,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Clase supertraj
+      T01 Introduction to wall class
     </h1>
   
 
@@ -91,35 +89,66 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Las trayectorias humanas estas definidas como una clase <em>supertraj</em></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Operaciones-b-aacute-sicas-con-la-clase-Level"><a href="#Operaciones-b-aacute-sicas-con-la-clase-Level" class="headerlink" title="Operaciones b&aacute;sicas con la clase Level"></a>Operaciones b&aacute;sicas con la clase <em>Level</em></h1><p>Crearemos un nivel b&aacute;sico para ver las funciones mas b&aacute;sicas que podemos realizar apartir de este objeto.</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab">clear<span class="token punctuation">;</span>
+n1 <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> n2 <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">40</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> n3 <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">40</span> <span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> n4 <span class="token operator">=</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span> <span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+w1 <span class="token operator">=</span> <span class="token function">wall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>n1 n2<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> w2 <span class="token operator">=</span> <span class="token function">wall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>n2 n3<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> w3 <span class="token operator">=</span> <span class="token function">wall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>n3 n4<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> w4 <span class="token operator">=</span> <span class="token function">wall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>n4 n1<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">% creamos un nivel con los nodes y paredes creados</span>
+ilevel <span class="token operator">=</span> level<span class="token punctuation">;</span>
+ilevel<span class="token punctuation">.</span>nodes <span class="token operator">=</span> <span class="token punctuation">[</span>n1 n2 n3 n4<span class="token punctuation">]</span><span class="token punctuation">;</span>
+ilevel<span class="token punctuation">.</span>walls <span class="token operator">=</span> <span class="token punctuation">[</span>w1 w2 w3 w4<span class="token punctuation">]</span><span class="token punctuation">;</span>
+ilevel<span class="token punctuation">.</span>dimensions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">50</span> <span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ilevel
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>
+ilevel = 
+
+  level with properties:
+
+              nodes: [1x4 node]
+              walls: [1x4 wall]
+              doors: [0x0 door]
+            beacons: [0x0 beacon]
+          elevators: [0x0 elevator]
+             stairs: [0x0 stairs]
+                  n: 0
+         dimensions: [50 50]
+         widthdoors: 2
+         widthwalls: 1
+    levels_distance: 0
+              north: 0
+          truelevel: 0
+               high: 0
+
+
+</code></pre><p>Una de las operaciones m&aacute;s b&aacute;sicas podemos ver gr&aacute;ficamente este objeto</p>
+<p><sub><a href="&quot;http://www.mathworks.com/products/matlab/&quot;">Published with MATLAB R2017b</a></sub></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/CT02_S03_T01/" data-id="cjgs25pxe0008e5s43firep8f" class="article-share-link">Compartir</a>
+      <a data-url="http://yoursite.com/CT02_S03_T01/" data-id="cjh7k5e37000o5as426kpat9a" class="article-share-link">Compartir</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejemplos/">ejemplos</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/CT02_S02_T02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/CT02_S05_T01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          Clase traj
+          T01 Introduction to wall class
         
       </div>
     </a>
   
   
-    <a href="/CT03_S01_T01/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/CT02_S02_T02/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">Introduccion a la simulación de la señales</div>
+      <div class="article-nav-title">T02 velocity parameter</div>
     </a>
   
 </nav>
@@ -135,7 +164,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/">CT01 Planimetría</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetria/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/">CT02 Simulación de trayectorias</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S01-Introducion/">S01 Introdución</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S02-Clase-traj/">S02 Clase traj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Simulacion-de-trayectorias/S03-Clase-supertraj/">S03 Clase supertraj</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/">CT03 Simulación de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S01-Introduccion/">S01 Introducción</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S02-Clase-BBSLevel/">S02 Clase BBSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S03-Clase-BFSLevel/">S03 Clase BFSLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S04-Clase-BeaconBasedSgn/">S04 Clase BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Simulacion-de-senales/S05-Clase-BeaconFreeSgn/">S05 Clase BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/">CT04 Procesamiento de señales</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Procesamiento-de-senales/S01-Introduccion/">S01 Introducción</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/">CT05 Comparación de métodos</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Comparacion-de-metodos/S01-Introduccion/">S01 Introducción</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/">CT01 Planimetry</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S02-node-Class/">S02 node Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S03-wall-Class/">S03 wall Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S04-level-Class/">S04 level Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT01-Planimetry/S05-build-Class/">S05 build Class</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/">CT02 Trayectories Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S02-traj-class/">S02 traj class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S03-supertraj-class/">S03 supertraj class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT02-Trayectories-Simulation/S05-network-class/">S05 network class</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/">CT03 Signals Simulation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S02-BeaconBasedSgnLevel/">S02 BeaconBasedSgnLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S03-BeaconFreeSgnLevel/">S03 BeaconFreeSgnLevel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S04-BeaconBasedSgn/">S04 BeaconBasedSgn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT03-Signals-Simulation/S05-BeaconFreeSgn/">S05 BeaconFreeSgn</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/">CT04 Signals Processing</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S01-Examples/">S01 Examples</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S02-Extended-Kalman-Filter/">S02 Extended Kalman Filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT04-Signals-Processing/S03-Unscented-Kalman-Filter/">S03 Unscented Kalman Filter</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Methods-Comparison/">CT05 Methods Comparison</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CT05-Methods-Comparison/S01-Examples/">S01 Examples</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -162,7 +191,7 @@
   
     <a href="https://github.com/joroya/navindoor" class="mobile-nav-link">GitHub</a>
   
-    <a href="/" class="mobile-nav-link">Download</a>
+    <a href="https://github.com/joroya/navindoor/archive/master.zip" class="mobile-nav-link">Download</a>
   
 </nav>
     
@@ -178,6 +207,6 @@
 
 
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
