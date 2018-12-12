@@ -1,12 +1,12 @@
 ---
 layout: project
-title: "About"
+title: About
 description: "Documentation of PIBA-Project"
 header-img: "img/BG.jpg"
 ---
 
-{% for WP in site.data.Chapters %}
-<h1>  Chapter {{{WP[1].number}}  ~ <small>  {{WP[1].name}} </small></h1>
+{% for WP in site.data.chapters %}
+<h1>  Chapter {{{WP[1].number}}  <small>  {{WP[1].name}} </small></h1>
 <p> {{WP[1].description}}</p>
 <div id="wrapper"> 
 <div id="content"> 
