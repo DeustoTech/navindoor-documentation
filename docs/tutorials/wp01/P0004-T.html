@@ -1,0 +1,47 @@
+<h1 id="signal-beacon">Signal Beacon</h1>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+    Traj((Trajectory))
+    
+    Traj --&gt; CoM
+    beacons((beacons)) --&gt; mesure
+    subgraph Beacon Signal Constructor 
+        CoM((CoM &lt;/br&gt;GroundTruth))
+        events((Events &lt;/br&gt; x,y,z,t))
+        mesure((Mesurements))
+        CoM                     --&gt; events
+        events  --for all--&gt; mesure
+    end
+    Event2Signal[Event2Signal Functions &lt;/br&gt;&lt;/br&gt; <ul><li>Event2RSS</li><li>Event2ToF</li><li>Event2AoA</li></ul>]      --&gt; mesure
+ 
+
+    mesure   --&gt; Final((Beacon &lt;/br&gt; Signal))
+    
+
+</div>
+
+<h1 id="signal-free">Signal Free</h1>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+    Traj((Trajectory))
+    
+    Traj --&gt; CoM
+    subgraph Beacon Signal Constructor 
+        CoM((CoM &lt;/br&gt;GroundTruth))
+        events((Events &lt;/br&gt; x,y,z,t))
+        mesure((Mesurements))
+
+        CoM                     --&gt; events
+        events  --for all--&gt; mesure
+    end
+    Event2Signal[Event2Signal Functions &lt;/br&gt;&lt;/br&gt; <ul><li>Event2Barometer</li><li>Event2Magnetometer</li><li>Event2CoM</li></ul>]      --&gt; mesure
+    mesure   --&gt; Final((Free &lt;/br&gt; Signal))
+    
+    Note right of CT02_2: Rational thoughts<br />prevail...
+
+</div>
+

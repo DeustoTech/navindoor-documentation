@@ -1,0 +1,16 @@
+Diaz2015:
+  abstract: "Inertial navigation systems use dead-reckoning to estimate the pedestrian's position. There are two types of pedestrian dead-reckoning, the strapdown algorithm and the step-and-heading approach. Unlike the strapdown algorithm, which consists of the double integration of the three orthogonal accelerometer readings, the step-and-heading approach lacks the vertical displacement estimation. We propose the first step-and-heading approach based on unaided inertial data solving 3D positioning. We present a step detector for steps up and down and a novel vertical displacement estimator. Our navigation system uses the sensor introduced in the front pocket of the trousers, a likely location of a smartphone. The proposed algorithms are based on the opening angle of the leg or pitch angle. We analyzed our step detector and compared it with the state-of-the-art, as well as our already proposed step length estimator. Lastly, we assessed our vertical displacement estimator in a real-world scenario. We found that our algorithms outperform the literature step and heading algorithms and solve 3D positioning using unaided inertial data. Additionally, we found that with the pitch angle, five activities are distinguishable: standing, sitting, walking, walking up stairs and walking down stairs. This information complements the pedestrian location and is of interest for applications, such as elderly care."
+  author: Diaz
+  issn: 14248220
+  journal: Sensors (Switzerland)
+  keywords: [Activity,Attitude,Dead reckoning,Orientation,Pedestrian,Pitch,Step detector,Step length,Vertical displacement]
+  title: "Inertial pocket navigation system: Unaided 3D positioning"
+  year: 2015
+
+ChallengesIndoor:
+  abstract: sd
+  author: Gonzalo Seco-Granados,José A. López-Salcedo,David Jiménez-Baños and Gustavo López-Risueño
+  year: 2012
+  title: Challenges in Indoor Global Navigation Satellite Systems
+  keywords: [GNSS, GPS, indoor navigation]
+  url: http://spcomnav.uab.es/docs/journals/seco_salcedo_IEEE_SPMAG.pdf

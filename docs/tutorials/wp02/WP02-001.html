@@ -1,0 +1,54 @@
+<h1 id="trajectory-simulation">Trajectory Simulation</h1>
+
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.js"></script>
+<div class="mermaid">
+graph LR
+    CT02_1((building))                          --&gt; CT02_3((Segments))
+    CT02_2((Points &lt;/br&gt; Sequence))             --&gt; CT02_3
+    CT02_4[Segments2Foot &lt;/br&gt; Models]          --&gt; CT02_5((Foot &lt;/br&gt;GroundTruth)) 
+    CT02_6((Foot2CoM &lt;/br&gt; Foot -&gt; Function))   --&gt; CT02_7
+
+
+    subgraph Trajectory Simulation 
+        CT02_3              --&gt; CT02_5
+        CT02_5                      --&gt; CT02_7[CoM &lt;/br&gt;GrountTruth] 
+    end
+    CT02_3 --&gt; CT02_8((Trajectory))
+    CT02_5 --&gt; CT02_8((Trajectory))
+    CT02_7 --&gt; CT02_8((Trajectory))
+</div>
+
+<h3 id="entry-parameters">Entry Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Name</th>
+      <th style="text-align: center">Class</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">building</td>
+      <td style="text-align: center">building</td>
+      <td style="text-align: center">Contain all information of planimetry. This parameter is necessary because the segments created must be respect the planimetric constrains (for example, no cross walls.)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">points sequence</td>
+      <td style="text-align: center">point</td>
+      <td style="text-align: center">Sequence of points where the trajectory passes.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Segments2Foot</td>
+      <td style="text-align: center">function_handle</td>
+      <td style="text-align: center">Function to able convert array points to foot GroundTruth</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Foot2CoM</td>
+      <td style="text-align: center">function_handle</td>
+      <td style="text-align: center">Function to able convert  foot GroundTruth to Center of mass (CoM) GroundTruth</td>
+    </tr>
+  </tbody>
+</table>
+

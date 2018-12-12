@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container" style="padding-top: 70px;padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="post-heading" style="padding: 0px 0">
+					<h1>Function Documentation</h1>
+                    <h2>{{ page.title }}</h2>
+                    {% if page.subtitle %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+					{% endif %}
+					<span class="meta">Create by: 
+					{% for aut in page.author %}
+						• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href="{{site.data.members[aut].web }}">{{ site.data.members[aut].name }}</a></span></span>
+					{% endfor %}
+					</span>	
+					<span>on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<hr>
+
+
+<article>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+
+
+				{{page.short_description}}
+
+				<h1>Input Vars</h1>
+				<ul>
+					{% for vars in page.inputs_variables %}
+					<li>
+						{{vars[0]}} : {{vars[1].description}}
+					</li>
+				{% endfor %}
+				</ul>
+
+				<h1>Output Vars</h1>
+				<ul>
+					{% for vars in page.outputs_variables %}
+					<li>
+						{{vars[0]}} : {{vars[1].description}}
+					</li>
+				{% endfor %}
+				</ul>
+
+
+
+				{{ content | markdownify }}
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+

@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container" style="padding-top: 70px;padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="post-heading" style="padding: 0px 0">
+                    <h1>{{ page.title }} <small>class</small></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<hr>
+
+
+<article>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				{{page.description}}
+
+				<h1>Properties</h1>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+					{% for vars in page.properties %}
+					<tr>
+						<th>{{vars[0]}}</th>
+						<th>{{vars[1].description}}</th>
+					</tr>
+				{% endfor %}
+				</table>
+
+				<h1>Output Vars</h1>
+				<ul>
+					{% for vars in page.outputs_variables %}
+					<li>
+						{{vars[0]}} : {{vars[1].description}}
+					</li>
+				{% endfor %}
+				</ul>
+
+
+
+				{{ content | markdownify }}
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
