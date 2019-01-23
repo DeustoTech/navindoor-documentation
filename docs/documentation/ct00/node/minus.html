@@ -11,9 +11,9 @@
 
 	<link rel='shortcut icon' type='image/png' href='/navindoor-documentation/favicon.ico' />
 
-    <title>Getting Started - Navindoor</title>
+    <title>minus - Navindoor</title>
 
-    <link rel="canonical" href="https://DeustoTech.github.io/navindoor-documentation/GettingStrated">
+    <link rel="canonical" href="https://DeustoTech.github.io/navindoor-documentation/documentation/ct00/node/minus">
 	
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://DeustoTech.github.io/navindoor-documentation/css/bootstrap.min.css">
@@ -109,7 +109,7 @@
                 
                 
                 <li>
-                    <a href="/navindoor-documentation/GettingStrated">Getting Started</a>
+                    <a href="/navindoor-documentation/Download">Download</a>
                 </li>
                 
                 <li>
@@ -123,57 +123,80 @@
 </nav>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="   background-image: url('/navindoor-documentation/img/BG.jpg')">
-    <div class="container">
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/navindoor-documentation/img/BG.jpg')">
+    <div class="container" style="padding-top: 70px;">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading" style="padding: 75px 0;">
-						
-                        
-                            <h1 class="title">  
-                            Getting Started
-                            </h1>
-                        
-                    <span class="subheading">First Steps to start</span>
-                    	
-
+                <div class="post-heading" style="padding: 0px 0">
+                    <h1 class="post-title">minus<small> method</small></h1> 
+                    <h2 class="post-title">node<small> class</small></h2>
                 </div>
+
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
+
+
 <div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			<ol>
-  <li>
-    <p>To start working on the tutorials of the project you must download the main project folder. For this you can click on the following link, then donwload the github repository.</p>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- MANDATORY INPUTS  -->
+                <h2>Description</h2>
+                This function solve a particular optimal control problem using the stochastic gradient descent algorithm. The restriction of the optimization problem is a parameter-dependent finite dimensional linear system. Then, the resulting states depend on a certain parameter. Therefore, the functional is constructed to control the average of the states with respect to this parameter. See Also in AverageClassicalGradient
+                <h2>Mandatory Input Parameters</h2>
 
-    <h3 class="center">
- <i class="fa fa-github" aria-hidden="true"></i>
- <a href="https://github.com/DeustoTech/dycon-platform-documentation-source">
- Dycon Tutorials Repository
- </a>
- </h3>
-    <p> </p>
-  </li>
-  <li>
-    <p>Go to MATLAB, and you should go to the directory of the dycon folder that you have downloaded.</p>
-  </li>
-  <li>
-    <p>Add to MATLAB path all dycon folder, and choose a some tutorial and enjoy!</p>
-  </li>
-</ol>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>class</th>
+                    </tr>
+                    
+                    <tr>
+                        <th>iCPD</th>
+                        <th>Control Parameter Dependent Problem</th>
+                        <th>ControlParameterDependent</th>
+                    </tr>
+                    
+                    <tr>
+                        <th>xt</th>
+                        <th>The target vector where you want the system to go</th>
+                        <th>double</th>
+                    </tr>
+                    
 
-		</div>
-	</div>
-</div>
+                </table>
 
+                <!-- OPTIONAL INPUTS  -->
 
-	
+                
+                <h2>Optional Input Parameters</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>class</th>
+                    </tr>
+                    
+                    <tr>
+                        <th>tol</th>
+                        <th>tolerance of algorithm, this number is compare with $J(k)-J(k-1)$</th>
+                        <th>double</th>
+                    </tr>
+                    
+                </table>
+                
+
+                <!--  OUTPUTS -->
+                
+            </div>
+        </div>
+    </div>
+                                    <!--  -->
+
     <!-- Footer -->
 <footer>
 

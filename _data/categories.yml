@@ -1,0 +1,15 @@
+CT00:
+  name: Planimetry Generation
+  description: 
+CT01:
+  name: Trajectories Simulation
+  description: 
+CT02:
+  name: Signals Simulation
+  description: 
+CT03:
+  name: Signals Processing 
+  description: 
+CT04: 
+  name: Methods Comparison 
+  description: 

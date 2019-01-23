@@ -4,58 +4,122 @@ layout: default
 
 <!-- Post Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container" style="padding-top: 70px;padding-bottom: 20px;">
+    <div class="container" style="padding-top: 70px;">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="post-heading" style="padding: 0px 0">
-                    <h1>{{ page.title }} <small>class</small></h1>
+                <div class="post-heading" style="padding: 0px 0">
+                    <h1 class="post-title">{{ page.title }} <small>Class</small></h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<hr>
 
 
-<article>
-    <div id="content" class="container">
+    <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
+                <h2>Example</h2>
+				{{content}}
+				<h2>Description</h2>
 				{{page.description}}
 
 				<h1>Properties</h1>
 				<table>
 					<tr>
 						<th>Name</th>
-						<th>Description</th>
+            <th>Type</th>
+            <th>Default Value</th>
+            <th>Description</th>
 					</tr>
 					{% for vars in page.properties %}
+						<tr>
+							<th>{{vars[0]}}</th>
+							<th>{{vars[1].type}}</th>
+							<th>{{vars[1].default}}</th>
+							<th>{{vars[1].description}}</th>
+						</tr>
+					{% endfor %}
+				</table>
+        <!-- CONSTRUCTOR  -->
+				<h1>Contructor</h1>
+				<h3>Mandatory Input Parameters</h3>
+				<table>
 					<tr>
-						<th>{{vars[0]}}</th>
-						<th>{{vars[1].description}}</th>
+						<th>Name</th>
+						<th>Description</th>
+						<th>class</th>
 					</tr>
-				{% endfor %}
+					{% for var in page.methods[page.title].MandatoryInputs %}
+						<tr>
+							<th>{{var[0]}}</th>
+							<th>{{var[1].description}}</th>
+							<th>{{var[1].class}}</th>
+						</tr>
+					{% endfor %}
+
 				</table>
 
-				<h1>Output Vars</h1>
-				<ul>
-					{% for vars in page.outputs_variables %}
-					<li>
-						{{vars[0]}} : {{vars[1].description}}
-					</li>
-				{% endfor %}
-				</ul>
+				<!-- OPTIONAL INPUTS  -->
 
+				{% if page.methods[page.title].OptionalInputs %}
+					<h3>Optional Input Parameters</h3>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>class</th>
+						</tr>
+						{% for var in page.methods[page.title].OptionalInputs %}
+							<tr>
+								<th>{{var[0]}}</th>
+								<th>{{var[1].description}}</th>
+								<th>{{var[1].class}}</th>
+							</tr>
+						{% endfor %}
+					</table>
+				{% endif %}
 
+				<!--  OUTPUTS -->
+				{% if page.methods[page.title].Outputs %}
+					<h3>Output Parameters</h3>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>class</th>
+						</tr>
+						{% for var in page.methods[page.title].Outputs %}
+						<tr>
+							<th>{{var[0]}}</th>
+							<th>{{var[1].description}}</th>
+							<th>{{var[1].class}}</th>
+						</tr>
+						{% endfor %}
+					</table>
+				{% endif %}
 
-				{{ content | markdownify }}
+				<h1>Methods</h1>
+
+					{% for method in page.methods %}
+  					{% unless method[0] contains page.title %}
+    					<div class="shadowbox">
+    						<h3>{{method[0]}}</h3>
+							<p>{{method[1].description}}</p>
+							{% for post in site.posts %}
+							{% if post.layout contains 'method' and post.title contains method[0] and post.class contains page.title %}
+								<a href="{{ post.url | prepend: site.baseurl }}">
+									<span>See more...</span>
+								</a>
+							{% endif %}
+							{% endfor %}
+
+    					</div>
+  					{% endunless %}
+					{% endfor %}
 
 
             </div>
         </div>
     </div>
-</article>
-
-
-
