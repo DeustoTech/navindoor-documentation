@@ -1,161 +1,76 @@
-# Site settings
-title: Navindoor
-description: "This MATLAB software is dedicated to the development indoor positioning algorithms."
-
-
-# Secondary Parameters
-baseurl: "/navindoor-documentation" # the subpath of your site, e.g. /blog
-url: "https://DeustoTech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# Welcome to Jekyll!
 #
+# This config file is meant for settings that affect your whole site, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Navindoor
+description: Navindoor Documentation
+baseurl: "/navindoor" # the subpath of your site, e.g. /blog
+url: "https://deustotech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+footer: The Navindoor tool is developed by
+funding: This work has been supported by the Basque Department of Education under the BLUE project (ref. PI_2016_0010).
+github_url: https://github.com/DeustoTech/navindoor-code
+
+permalink: pretty
+exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
+
+# Enable or disable the site search
+search_enabled: true
+
+# Parameters for the upper right navigation
+mobility:
+  name: DeustoTech Mobility
+  url: http://mobility.deustotech.eu
+  img: assets/images/DeustoTech-Mobility.png
+
+# Color scheme currently only supports "dark" or nil (default)
+color_scheme: nil
+
+# Google Analytics Tracking (optional)
+# e.g, UA-1234567-89
+# ga_tracking: UA-2709176-10
 
 destination: docs
-header-img: img/BG.jpg
-headercolor: "white"
-logo: img/navindoor.png
-logo-icon: img/navindoor-icon.png
 
-# Tertiary Parameters
-github_username:  DeustoTech
-project_repository: navindoor
-disqus_shortname: navindoor
-g-analytics: 
-altmetric: true
+plugins:
+#A Jekyll plugin to add metadata tags for search engines and social networks to better index and display your site's content.
+  - jekyll-seo-tag
+  # I finally installed it by adding it in the Gemfile and running 'bundle install'
+  #- jekyll-scholar
+  
+scholar:
+  style: apa
+  #style: ieee
+  locale: en
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-permalink: /:categories/:title
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+  sort_by: none
+  order: ascending
+  
+  bibliography_list_tag: none
 
-# Jekyll Settings
-plugins: [jekyll-mermaid]
-mermaid:
-  src: 'https://unpkg.com/mermaid@7.1.0/dist/mermaid.js'
+  source: ./_bibliography
+  bibliography: references.bib
+  #bibliography_template: "{{reference}}"
+  bibliography_template: bibliography
+  #repository: ./_bibliography
+  repository: ./assets/papers
 
-defaults:
-  -
-    scope:
-      path: "projects"
-      type: "pages"
-    values:
-      layout: "project"
-      header-img: "img/BG.jpg"
+  replace_strings: true
+  join_strings:    true
 
-# Prose Settings
-prose:
-  ignore: ['feed.xml', '/stl', '/ply', '/js', '/plugin', '/lib', '/projectors', '_layouts','/_bibliography', '/_includes', 'Gruntfile.js', 'package.json', 'proselinks.jsonp', 'ppanchor.matin', '.gitignore', '/search', '/css', '/img', 'favicon.png','_data/*.json','LICENSES.md','README.md','colorscheme.scss','members.html','mentions.html','index.html']
-  siteurl: 'http://projectpages.github.io/project-pages/'
-  ispp: true
-  media: 'img'
-  metadata:
-    projects:
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          value: ""
-      - name: "description"
-        field:
-          element: "text"
-          label: "Description"
-          value: ""
-      - name: "category"
-        field:
-          element: "text"
-          label: "Project"
-          value: ""           
-    _posts:
-      - name: "subtitle"
-        field:
-          element: "text"
-          label: "Sub-Title (Short Description)"
-          value: ""
-      - name: "layout"
-        field:
-          element: "select"
-          label: "Choose Layout"
-          placeholder: "Layouts"
-          options:
-            - name: "Post"
-              value: "post"
-            - name: "Slide"
-              value: "slide"
-            - name: "Projector"
-              value: "projector"
-            - name: "Notebook"
-              value: "notebook"
-            - name: "Ply Surface"
-              value: "plysurface"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          value: ""
-      - name: "author"
-        field:
-          element: "text"
-          label: "Author"
-          value: ""
-      - name: "tags"
-        field:
-          element: "text"
-          label: "Tags (seperate with whitespace)"
-          value: ""
-      - name: "category"
-        field:
-          element: "text"
-          label: "Project"
-          value: ""    
-      - name: "horizontal"
-        field:
-          element: "hidden"
-          value: </section></section><section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
-      - name: "vertical"
-        field:
-          element: "hidden"
-          value: </section><section markdown="1">
-      - name: "slideinit"
-        field:
-          element: "hidden"
-          value: <section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
-      - name: "theme"
-        field:
-          element: "select"
-          label: "Theme (Slide)"
-          placeholder: "Theme (Slide)"
-          options:
-            - name: "Beige"
-              value: "beige"
-            - name: "Blood"
-              value: "blood"
-            - name: "Moon"
-              value: "moon"          
-            - name: "Night"
-              value: "night"
-            - name: "Sky"
-              value: "sky"
-            - name: "Solarized"
-              value: "solarized"             
-      - name: "trans"
-        field:
-          element: "select"
-          label: "Transition (Slide)"
-          placeholder: "Transition (Slide)"
-          options:
-            - name: "Cube"
-              value: "cube"
-            - name: "Page"
-              value: "page"
-            - name: "Concave"
-              value: "concave"          
-            - name: "Linear"
-              value: "linear"
-            - name: "Fade"
-              value: "fade"
-            - name: "None"
-              value: "none"             
-      - name: "visualworkflow"
-        field:
-          element: "checkbox"
-          label: "Visual Workflow Chart (Some Layouts)"
-          value: "true"
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"
+

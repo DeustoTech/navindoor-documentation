@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+    <title>Navindoor modules - Navindoor</title>
+
+    
+  
+
+  <link rel="shortcut icon" href="https://deustotech.github.io/navindoor/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://deustotech.github.io/navindoor/assets/css/just-the-docs.css">
+
+  
+
+  
+    <script type="text/javascript" src="https://deustotech.github.io/navindoor/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="https://deustotech.github.io/navindoor/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Navindoor modules | Navindoor</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Navindoor modules" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Navindoor Documentation" />
+<meta property="og:description" content="Navindoor Documentation" />
+<link rel="canonical" href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T022_ModulesIntro/" />
+<meta property="og:url" content="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T022_ModulesIntro/" />
+<meta property="og:site_name" content="Navindoor" />
+<script type="application/ld+json">
+{"url":"https://deustotech.github.io/navindoor/posts/02-ToolDescription/T022_ModulesIntro/","headline":"Navindoor modules","description":"Navindoor Documentation","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    },
+		TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      },
+      extensions: ["AMSmath.js", "AMSsymbols.js"],
+      Macros:{
+        Y: "\\textbf{Y}",
+        dY: "\\dot{\\textbf{Y}}",
+        U: "\\textbf{U}",
+      }
+    },
+    CommonHTML: {
+      styles: {
+        "@font-face /* vec */ ": {
+          "font-family": "MJX-VEC",
+          src: [
+            "url(data:application/x-font-woff;charset=utf-8;base64,",
+            "d09GRgABAAAAAARMAA0AAAAABiQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAEMAAAABwA",
+            "AAAccRGLqUdERUYAAAQMAAAAJAAAACgANAAmT1MvMgAAAaAAAABJAAAAYFc5gfFjbWFwAAACAAAA",
+            "AEYAAAFKQxjlbWdhc3AAAAQEAAAACAAAAAj//wADZ2x5ZgAAAlQAAACUAAAAlIQU9HBoZWFkAAAB",
+            "MAAAADAAAAA2C748e2hoZWEAAAFgAAAAHgAAACQFXQDqaG10eAAAAewAAAAUAAAAFAYvAE9sb2Nh",
+            "AAACSAAAAAwAAAAMACgAcm1heHAAAAGAAAAAHQAAACAASQAmbmFtZQAAAugAAADxAAAB5uwlD0hw",
+            "b3N0AAAD3AAAACgAAAA34M9aEXjaY2BkYGAA4uOfgq7G89t8ZeBmfgEUYbga+icNTssClVxnOgXk",
+            "cjAwgUQBdqEMW3jaY2BkYGBu+feBgYHxCwMQMF5nYGRABawAcaQESgAAeNpjYGRgYGBlUGZgYgAB",
+            "EMnIABJzAPMZAAZZAHAAAAB42mNgYSxn/MLAysDA1MW0h4GBoQdCMz5gMGRkAooysDEzwAAjECvA",
+            "OAFprikMBxgUFCcxt/z7wMDA3MIoAFUDAwoMjACD8Qv5AAAAAfQAMgAAAAABTQAAAPoAAAH0AB14",
+            "2mNgYGBmgGAZBkYGEHAB8hjBfBYGDSDNBqQZGZgYFBQn/f8P5IPp/4/vFUHVAwEjGwOcw8gEJJgY",
+            "UAEjxIrhDACLGwmnAAAAAAAUABQAFAAUAEoAAgAyAAABwgIVAAMABwAAMxEhESUhESEyAZD+ogEs",
+            "/tQCFf3rMgGxAAEAHQIEAdcCygAiAAABNDYzMhcWFxYXFhUUBgcGBw4DIyImNTQ3IycmNTQ3ISYB",
+            "eQsJBwUFBQofCwYLKyACBwMGBAcNL6urDQ0BZxgCtggMBQQPJRQHCwkGBhYpAgkCAgsJEygBCQoH",
+            "DSYAeNqVjrGKwkAURe/EGBBUrG12CishMrFQcDuLsAi26YMOmsIMxAh+hN8i+CF+gd+y4B3zttjC",
+            "woHhncu7774HoI8rFP5eIKzQw5dwgAjfwi2McBEO6bkLtzHAr3CEnhrTqcKOpDasMCQ1HKCLWLiF",
+            "HyyFQ3puwm1oPIQjDFXfR62Ro8YeK9YzMlhsqB0qtvJ6v8rPmd3Uzkv2tihwwoHCbosTa0pryYH0",
+            "NbKjRWPB/z626Se8dsY/hSHPGeTKOnXVzuqF/reYOoln8dQk80+u9b0KR97rD9Rc4xdNXtVQI7PV",
+            "sXClNiaZGGP0B+FPMN1KMAAAAHjaY2BiAIP/zQxGDNgAKxAzMjAxMDMycSUWFeWXF2WmZ5QAAGh5",
+            "BhgAAAAB//8AAnjaY2BkYGDgA2IJBgUgycTAyMDMwAIkWcA8BgZGCAYACgIAWwAAAAEAAAAAxmW3",
+            "ygAAAADVVeemAAAAANVV7Dg=) format('woff')"
+          ].join('')
+        },
+        ".MJX-VEC": {
+          "font-family": "MJX-VEC"
+        }
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook("CommonHTML Jax Ready", function () {
+    var MML = MathJax.ElementJax.mml;
+    var fixCombiningChar = MML.mo.prototype.CHTMLfixCombiningChar;
+    MML.mo.Augment({
+      CHTMLfixCombiningChar: function (node) {
+        if (node.textContent === '\u20D7') {
+          //
+          //  Safari makes combining characters into non-combining ones when
+          //  they don't have anything to combine with; replace \vec arrow
+          //  with a non-combining one so all browsers get the same thing
+          //
+          node = node.firstChild;
+          node.firstChild.nodeValue = "\u2192";
+          node.className = "mjx-char MJX-VEC";
+          node.style.marginLeft = "-.5em";
+          node.style.paddingTop = ".45em";
+        } else {
+          fixCombiningChar.call(this,node);
+        }
+      }
+    });
+  });
+	</script>
+</head>
+
+<body>
+
+  <div class="page-wrap">
+    <div class="side-bar">
+          <center>
+              <a href="https://deustotech.github.io/navindoor/" class="site-title fs-6 lh-tight">
+                <img src="https://deustotech.github.io/navindoor/assets/images/logo.png" width="70%"></img>
+              </a>
+          </center>
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav role="navigation" aria-label="Main navigation">
+  <ul class="navigation-list">
+    
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="https://deustotech.github.io/navindoor/" class="navigation-list-link">Home</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+            <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T02_ToolDescription/" class="navigation-list-link">Navindoor description</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T021_StateOfTheArt/" class="navigation-list-link">State of the Art of Simulators for Localization</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item  active">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T022_ModulesIntro/" class="navigation-list-link active">Navindoor modules</a>
+                      
+                        
+                        <ul class="navigation-list-child-list">
+                          
+                            
+                          
+                            
+                          
+                            
+                              <li class="navigation-list-item ">
+                                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0221_PlanimetryModule/" class="navigation-list-link">Planimetry module</a>
+                              </li>
+                            
+                          
+                            
+                          
+                            
+                          
+                            
+                          
+                            
+                              <li class="navigation-list-item ">
+                                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0222_TrajectoryModule/" class="navigation-list-link">Trajectory module</a>
+                              </li>
+                            
+                          
+                            
+                          
+                            
+                          
+                            
+                          
+                            
+                              <li class="navigation-list-item ">
+                                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0223_SignalGenerationModule/" class="navigation-list-link">Signal generation module</a>
+                              </li>
+                            
+                          
+                            
+                          
+                            
+                          
+                            
+                              <li class="navigation-list-item ">
+                                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0224_SignalProcessingModule/" class="navigation-list-link">Signal processing module</a>
+                              </li>
+                            
+                          
+                            
+                          
+                            
+                              <li class="navigation-list-item ">
+                                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0225_EvaluationModule/" class="navigation-list-link">Evaluation module</a>
+                              </li>
+                            
+                          
+                        </ul>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="https://deustotech.github.io/navindoor/posts/03-Documentation/T03_Documentation/" class="navigation-list-link">Documentation</a>
+            
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/03-Documentation/T031_Presentations/" class="navigation-list-link">Presentations</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/03-Documentation/T032_Tutorials/" class="navigation-list-link">Tutorials</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/03-Documentation/T033_API/" class="navigation-list-link">API reference</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://deustotech.github.io/navindoor/posts/03-Documentation/T034_Papers/" class="navigation-list-link">Papers</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+            <a href="https://deustotech.github.io/navindoor/posts/04-SourceCode/" class="navigation-list-link">Source Code</a>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+        <p class="text-small text-grey-dk-000 mb-0">
+            The Navindoor tool is developed by
+        </p>
+		<a href="http://mobility.deustotech.eu" target="_blank">
+			<img src="https://deustotech.github.io/navindoor/assets/images/DeustoTech-Mobility.png" width="100%"></img>
+		</a>
+		<br>
+        <p class="text-small text-grey-dk-000 mb-0">
+            This work has been supported by the Basque Department of Education under the BLUE project (ref. PI_2016_0010).
+        </p>		
+      </footer>
+    </div>
+    <div class="main-content-wrap js-main-content" tabindex="0">
+      <div class="page-header">
+        <div class="main-content">
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" tabindex="0" placeholder="Search in Navindoor" aria-label="Search Navindoor" autocomplete="off">
+              <svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+<!--             <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                <li class="d-inline-block">
+                      <div align="right">
+                          Visit ↠  <a href="http://mobility.deustotech.eu">
+                          DeustoTech Mobility
+                        </a>
+
+                        </div>
+                </li>
+            </ul> -->
+        </div>
+      </div>
+      <div class="main-content">
+        
+          
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T02_ToolDescription/">Navindoor description</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Navindoor modules</span></li>
+              </ol>
+            </nav>
+          
+        
+        <div id="main-content" class="page-content" role="main">
+          
+          <h1>Navindoor modules</h1>
+          <p>Navindoor has been developed under the paradigm of object-oriented programming. Classes have been defined to represent elements in the design of location systems. The planimetry, trajectories or signals are classes that contain associated methods for their visualization, data extraction and interaction between them. On the other hand, we have location algorithms and metrics to compare algorithms. These are represented by functions that act on the above mentioned classes.
+These classes and functions have been developed in five modules that follow the process of experimentation in the design of location systems. In order to have a global vision of it, this process and the module proposed in each point will be briefly described:</p>
+<ol>
+  <li>Obtaining the planimetry. The first step in the experimentation is the choice of the scenario and the obtaining of the planimetry. In Navindoor, the planimetry module has been created with the necessary classes for
+to build a multi-level planimetry.</li>
+  <li>Generation of trajectories. In the experimentation, reference points are taken in order to be able to construct trajectories through them. This limits the variety of trajectories, however it is necessary to obtain
+precise measurements of the position at any given moment. Navindoor has created the module for generating trajectories, dedicated to the simulation of trajectories. Because we are in a simulation environment we have exact information about the real trajectory, generated from a succession of points provided by the user.</li>
+  <li>Signal measurement. In experimentation, once the trajectory has been generated, it must be enriched with signals. The third module, called the signal generation module, is dedicated to simulation.
+of synthetic signals. Thanks to simulation, we can create the signals after the trajectory has been generated.</li>
+  <li>Signal processing. After taking measurements, the locating algorithms process the signals. The fourth Navindoor module, called the measurement processing module, provides algorithms capable of creating estimates of the real trajectory from the simulated signals. It also offers a scheme where new algorithms can be developed.</li>
+  <li>Algorithm Comparison. Finally, in order to validate the developed algorithms it is necessary to compare them with other already consolidated algorithms. The fifth module of Navindoor is the validation module of 
+algorithms, which provide us with methods of comparing algorithms provided by the user or between algorithms by default.</li>
+</ol>
+
+<p>Within these modules are distributed the classes and functions defined in Navindoor. 
+It is worth mentioning that both CLI and GUI are compatible in MATLAB versions higher than MATLAB R2017b. 
+Details of each module are presented next.</p>
+
+          <p></p>
+          <hr><h2 class="text-delta">Table of contents</h2><ul><li>
+                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0221_PlanimetryModule/">Planimetry module</a>
+              </li><li>
+                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0222_TrajectoryModule/">Trajectory module</a>
+              </li><li>
+                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0223_SignalGenerationModule/">Signal generation module</a>
+              </li><li>
+                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0224_SignalProcessingModule/">Signal processing module</a>
+              </li><li>
+                <a href="https://deustotech.github.io/navindoor/posts/02-ToolDescription/T0225_EvaluationModule/">Evaluation module</a>
+              </li></ul>
+          <hr></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
