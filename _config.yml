@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Navindoor
 description: Navindoor Documentation
-baseurl: "/navindoor" # the subpath of your site, e.g. /blog
+baseurl: "/navindoor-documentation" # the subpath of your site, e.g. /blog
 url: "https://deustotech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 footer: The Navindoor tool is developed by
 funding: This work has been supported by the Basque Department of Education under the BLUE project (ref. PI_2016_0010).
